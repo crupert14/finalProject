@@ -1,0 +1,24 @@
+FOLDER STRUCTURE
+
+- database
+    Where we will house any logic that connects to the database
+- models
+    Self explanatory, folder for database models, if you don't know what it is
+    theres alot of resources online or shoot me(Cade) a text at +1(609)678-7207
+- node_modules
+    Do not touch or modify under any circumstances, these are predownloaded modules
+    from npm (node package manager)
+- public
+    For storing images/assets that will be used on the front end
+- routes
+    For routes to different pages on the site, will hold the logic to display the page
+- views
+    Will be accessed by the routes file, will either hold HTML, ejs, pug or other
+    front-end languages that will be used to display the web page
+
+ROOT FILES
+- .env
+    Holds environment variables that will be accessible from any code file so long as
+    dotenv.config() is in the beginning
+- package.json
+    Lists details about the project, scripts, the name, etc
