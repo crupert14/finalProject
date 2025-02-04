@@ -12,6 +12,8 @@ FOLDER STRUCTURE
     For storing images/assets that will be used on the front end
 - routes
     For routes to different pages on the site, will hold the logic to display the page
+- src
+    Will hold CSS and JavaScript files meant for webpage looks/interaction
 - views
     Will be accessed by the routes file, will either hold HTML, ejs, pug or other
     front-end languages that will be used to display the web page
@@ -25,3 +27,5 @@ ROOT FILES
     like API keys
 - package.json
     Lists details about the project, scripts, the name, etc
+- README.md
+    The file you're reading, jackass
