@@ -20,5 +20,8 @@ ROOT FILES
 - .env
     Holds environment variables that will be accessible from any code file so long as
     dotenv.config() is in the beginning
+- .gitignore
+    Tells github which files not to publish publicly, reserved for private information 
+    like API keys
 - package.json
     Lists details about the project, scripts, the name, etc
