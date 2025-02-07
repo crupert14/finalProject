@@ -29,3 +29,6 @@ ROOT FILES
     Lists details about the project, scripts, the name, etc
 - README.md
     The file you're reading, jackass
+- server.js
+    File that will be run to start the application/called whenever the website is requested
+    by a server or computer (wherever you are running it)

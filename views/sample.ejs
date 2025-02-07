@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <link rel="stylesheet" href="/css/sample.css">
+</head>
+<body>
+    <img src="<%= img %>">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Movie Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Title</td>
+                <td>Year</td>
+                <td>Rated</td>
+                <td>Released</td>
+                <td>Runtime</td>
+                <td>Genre</td>
+            </tr>
+            <tr>
+                <td><%= title %></td>
+                <td><%= year %></td>
+                <td><%= rated %></td>
+                <td><%= released %></td>
+                <td><%= runtime %></td>
+                <td><%= genre %></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
