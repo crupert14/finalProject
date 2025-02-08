@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouScreen! Home</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <!-- Google font Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img class="header-logo" src="/imgs/IMDB.jpg">
+            </div>
+            <div class="search">
+                <input type="text" class="search-bar" placeholder="Search YouScreen!">
+            </div>
+            <div>
+                <ul class="links">
+                    <li>Home</li>
+                    <li>Contact</li>
+                    <li>About Us</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="main-info">
+            <img class="poster" src="<%= img %>">
+            <div class="total-info">
+                <div class="side-info">
+                    <h1 class="title"><%= title %></h1>
+
+                    <div class="little-info">
+                        <span><%= year %></span>
+                        <span><%= rated %></span>
+                        <span><%= runtime %></span>
+                        <span><%= genre %></span>
+                    </div>
+
+                    <div class="summary-container">
+                        <p class="summary">
+                            <%= summary %>
+                        </p>
+                    </div>
+
+                    <div class="people-container">
+                        <span>Cast: </span>
+                        <span><%= cast %></span>
+
+                        <br>
+
+                        <span>Director(s): </span>
+                        <span><%= director %></span>
+
+                        <br>
+
+                        <span>Writer(s): </span>
+                        <span><%= writers %></span>
+                        
+                        <br>
+                        <br>
+
+                        <span>Language(s): </span>
+                        <span><%= languages %></span>
+
+                        <br>
+
+                        <span>Country(s): </span>
+                        <span><%= country %></span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="award-info">
+            <h1 class="award-title">Awards and Ratings</h1>
+
+            <p><i>"<%= title %>"</i> <span><%= awards %></span></p>
+
+            <p>IMDb: <span><%= imdbrating %></span>/10</p>
+            <p>Rotten Tomatoes: <span><%= rt %></span></p>
+            <p>Metacritic: <span><%= meta %></span>/100</p>
+
+            <br>
+
+            <p>Box Office: <span><%= boxoffice %></span></p>
+        </div>
+    </main>
+
+    <footer>
+        footer
+    </footer>
+</body>
+</html>

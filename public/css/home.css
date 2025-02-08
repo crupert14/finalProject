@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-areas: 
+    "nav"
+    "main"
+    "footer";
+    grid-template-rows: auto 1fr auto;
+    font-family: "Roboto", serif;
+}
+
+nav, main, footer {
+    border: 1px dashed black;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    width: 80%;
+}
+
+.header-logo {
+    height: 2.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+}
+
+.search {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.search-bar {
+    flex-grow: 1;
+    width: 90%;
+    min-width: 10em;
+    max-width: 40em;
+    height: 2em;
+    border-radius: 0.3em;
+    transition: width 0.3s ease;
+}
+
+.search-bar {
+    text-indent: 1em;
+}
+
+.links {
+    display: flex;
+    list-style: none;
+    gap: 2em;
+    color: white;
+    padding-right: 2em;
+    font-size: 1em;
+}
+
+main {
+    grid-area: main;
+    background-color: #1F1F1F;
+    display: grid;
+    place-items: center;
+    border: 1px solid black;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.main-info {
+    height:auto;
+    width: 80%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.poster {
+    border-radius: 0.5em;
+    flex-shrink: 0;
+}
+
+.total-info {
+    padding-left: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.little-info {
+    display: flex;
+    gap: 1em;
+    color: grey;
+    font-size: 0.9em;
+}
+
+.summary {
+    color: white;
+    padding-top: 1em;
+}
+
+.people-container {
+    padding-top: 0.5em;
+}
+
+.people-container > span {
+    color: grey;
+}
+
+.title {
+    color: white;
+    font-weight:500;
+    font-size: 2.75em;
+}
+
+.award-info {
+    height:auto;
+    width: 80%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.award-title {
+    text-align: center
+}
+
+footer {
+    grid-area: footer;
+}
