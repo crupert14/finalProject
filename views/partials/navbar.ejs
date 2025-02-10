@@ -80,6 +80,15 @@
         font-size: 1em;
     }
 
+    .links > span {
+        cursor: pointer;
+        transition: 300ms ease;
+    }
+
+    .links > span:hover {
+        color: grey;
+    }
+
     /* Sidebar */
 
     .side {
@@ -96,18 +105,29 @@
         color: var(--nav-links);
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 1.5em;
+    }
+
+    .transition > li {
+        text-align: center;
+        transition: 300ms ease;
+        cursor: pointer;
+    }
+
+    .transition > li:hover {
+        color: grey;
     }
 </style>
 <nav>
     <div class="nav-container-one">
         <div class="logo">
-            <img class="header-logo" src="/imgs/IMDB.jpg">
+            <a href="/"><img class="header-logo" src="/imgs/IMDB.jpg"></a>
         </div>
     </div>
     <div class="nav-container-two">
         <div>
-            <ul class="links">
+            <ul class="links transition">
                 <li>Movies</li>
                 <li>Discussions</li>
                 <li>Watch</li>
@@ -127,7 +147,7 @@
 </nav>
 
 <div class="side">
-    <ul class="side-links">
+    <ul class="side-links transition">
         <li>Username</li>
         <li>Updates</li>
         <li>Library</li>
