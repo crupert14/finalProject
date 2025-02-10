@@ -1,8 +1,117 @@
-body {
+/* Main layout */
+main {
+    display: grid;
+    grid-area: "main";
+    height: 100%;
+    overflow-y: auto;
+    grid-template-areas: 
+    "central";
+    grid-template-columns: 1fr;
+    background-color: var(--main-bg);
+}
+
+.central {
+    padding: 1em;
     display: grid;
     grid-template-areas: 
-    "nav"
-    "main"
-    "footer";
-    grid-template-rows: auto 1fr auto;
+    "trending"
+    "discussion-1"
+    "discussion-2";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-area: central;
+    gap: 2em;
 }
+
+.trending {
+    grid-area: trending;
+    display: grid;
+    grid-template-areas: 
+    "poster info"
+    "poster synopsis";
+    grid-template-columns: auto 3fr;
+    grid-template-rows: 0.5fr 1fr;
+    /* background-color: var(--nav-bg); */
+    border-radius: 1em;
+}
+
+
+/* Trending */
+
+.poster {
+    grid-area: poster;
+}
+
+.poster > img {
+    border-radius: 1em;
+    height: auto;
+    max-height: 15em;
+}
+
+.info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
+}
+
+.info > p {
+    color: var(--main-subtext);
+}
+
+.synopsis {
+    grid-area: synopsis;
+}
+
+.info, .synopsis {
+    color: var(--main-main-text);
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/* End Trending */
+
+/* Discussions */
+.favorite-discussion-one {
+    grid-area: discussion-1;
+    background-color: var(--nav-bg);
+    border-radius: 1em;
+}
+
+.favorite-discussion-two {
+    grid-area: discussion-2;
+    background-color: var(--nav-bg);
+    border-radius: 1em;
+}
+/* End discussions */
+
+.divider {
+    width: 1em;
+    height: auto;
+    background-color: var(--nav-bg);
+}
+
+/* Right side */
+
+.right {
+    display: grid;
+    grid-template-areas: 
+    "week"
+    "month"
+    "placeholder";
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.top-five-week {
+    grid-area: week;
+}
+
+.top-five-month {
+    grid-area: month;
+}
+
+.placeholder {
+    grid-area: placeholder;
+}
+
+/* End right side */

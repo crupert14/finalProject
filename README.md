@@ -28,7 +28,7 @@ ROOT FILES
 - package.json
     Lists details about the project, scripts, the name, etc
 - README.md
-    The file you're reading, jackass
+    The file you're reading, used to describe how an application works/how it is used
 - server.js
     File that will be run to start the application/called whenever the website is requested
     by a server or computer (wherever you are running it)

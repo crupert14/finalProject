@@ -2,12 +2,10 @@
     body {
         display: grid;
         grid-template-areas: 
-        "nav nav"
-        "side main"
-        "side main"
-        "footer footer";
-        grid-template-rows: auto 1fr 1fr auto;
-        grid-template-columns: 15% auto;
+        "nav nav nav"
+        "side main side-two";
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 15% auto 15%;
     }
     
     nav {
@@ -99,6 +97,15 @@
         padding-top: 2em;
     }
 
+    .side-two {
+        padding: 2em;
+        grid-area: side-two;
+        background-color: var(--nav-bg);
+        display: flex;
+        flex-direction: column;
+        gap: 5em;
+    }
+    
     .side-links {
         list-style: none;
         padding-left: 0.3em;
@@ -117,6 +124,30 @@
 
     .transition > li:hover {
         color: grey;
+    }
+
+    /* Tables */
+
+    table, tr, td {
+        border: 1px solid var(--main-subtext);
+        border-collapse: collapse;
+    }
+
+    td {
+        height: 2em;
+        text-align: center;
+    }
+
+    .table-head {
+        color: var(--nav-links);
+    }
+
+    .title {
+        color: var(--nav-links);
+    }
+
+    .num {
+        color: var(--nav-links);
     }
 </style>
 <nav>
@@ -161,4 +192,62 @@
         <li>Announcements</li>
         <li>About Us</li>
     </ul>
+</div>
+
+<div class="side-two">
+    <table class="weekly">
+        <thead>
+            <tr>
+                <th class="table-head" colspan="2">Weekly Hype</th>
+            </tr>
+        </thead>
+        <tr>
+            <td class="num">1</td>
+            <td class="title">Title</td>
+        </tr>
+        <tr>
+            <td class="num">2</td>
+            <td class="title">Title</td>
+        </tr>
+        <tr>
+            <td class="num">3</td>
+            <td class="title">Title</td>
+        </tr>
+        <tr>
+            <td class="num">4</td>
+            <td class="title">Title</td>
+        </tr>
+        <tr>
+            <td class="num">5</td>
+            <td class="title">Title</td>
+        </tr>
+    </table>
+
+    <table class="monthly">
+        <thead>
+            <tr>
+                <th class="table-head" colspan="2">Monthly Hype</th>
+            </tr>
+        </thead>
+        <tr>
+            <td class="num">1</td>
+            <td class="title">Title</td>
+        </tr>
+        <tr>
+            <td class="num">2</td>
+            <td class="title">Title</td>
+        </tr>
+        <tr>
+            <td class="num">3</td>
+            <td class="title">Title</td>
+        </tr>
+        <tr>
+            <td class="num">4</td>
+            <td class="title">Title</td>
+        </tr>
+        <tr>
+            <td class="num">5</td>
+            <td class="title">Title</td>
+        </tr>
+    </table>
 </div>
