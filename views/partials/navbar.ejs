@@ -1,0 +1,86 @@
+<style>
+    nav {
+        grid-area: nav;
+        background-color: var(--nav-bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .nav-container {
+        display: flex;
+        gap: 2em;
+        align-items: center;
+        width: 80%;
+        min-width: 40em;
+    }
+
+    .header-logo {
+        height: 2.5em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        padding-left: 2em;
+    }
+
+    .search {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .search-bar {
+        flex-grow: 1;
+        width: 90%;
+        min-width: 10em;
+        max-width: 40em;
+        height: 2em;
+        border-top-right-radius: 0.3em;
+        border-bottom-right-radius: 0.3em;
+        transition: width 0.3s ease;
+        text-indent: 1em;
+    }
+    
+    .search-icon-container {
+        height: 1.55em;
+        width: 2.75em;
+        border: 1px solid grey;
+        background-color: grey;
+        border-top-left-radius: 1.5em;
+        border-bottom-left-radius: 1.5em;
+        text-align: center;
+    }
+    
+    .search-icon {
+        padding-top: 0.2em;
+    }
+    
+    .links {
+        display: flex;
+        list-style: none;
+        gap: 2em;
+        color: var(--nav-links);
+        padding-right: 2em;
+        font-size: 1em;
+    }
+</style>
+<nav>
+    <div class="nav-container">
+        <div class="logo">
+            <img class="header-logo" src="/imgs/IMDB.jpg">
+        </div>
+        <div class="search">
+            <div class="search-icon-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            </div>
+            <input type="text" class="search-bar" placeholder="Search YouScreen!">
+        </div>
+        <div>
+            <ul class="links">
+                <li>Home</li>
+                <li>Contact</li>
+                <li>About Us</li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 
 router.get('/', async (req, res) => {
-    const response = await fetch(`https://www.omdbapi.com/?t=hjkhjk&apikey=${process.env.OMDB_KEY}`);
+    const response = await fetch(`https://www.omdbapi.com/?t=joker&apikey=${process.env.OMDB_KEY}`);
     const data = await response.json();
   
     console.log(data);
@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
         });
     }
     else {
-        res.send(data.Error);
+        res.send(data.Error); //Will make dedicated error page
     }
   });
 

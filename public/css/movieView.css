@@ -14,69 +14,15 @@ body {
     "footer";
     grid-template-rows: auto 1fr auto;
     font-family: "Roboto", serif;
-}
-
-nav, main, footer {
-    border: 1px dashed black;
-}
-
-nav {
-    grid-area: nav;
-    background-color: #121212;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-container {
-    display: flex;
-    gap: 2em;
-    align-items: center;
-    width: 80%;
-}
-
-.header-logo {
-    height: 2.5em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 2em;
-}
-
-.search {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-}
-
-.search-bar {
-    flex-grow: 1;
-    width: 90%;
-    min-width: 10em;
-    max-width: 40em;
-    height: 2em;
-    border-radius: 0.3em;
-    transition: width 0.3s ease;
-}
-
-.search-bar {
-    text-indent: 1em;
-}
-
-.links {
-    display: flex;
-    list-style: none;
-    gap: 2em;
-    color: white;
-    padding-right: 2em;
-    font-size: 1em;
+    overflow-y: hidden;
 }
 
 main {
     grid-area: main;
-    background-color: #1F1F1F;
+    background-color: var(--main-bg);
     display: grid;
     place-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     overflow-y: auto;
     height: 100%;
 }
@@ -84,7 +30,7 @@ main {
 .main-info {
     height:auto;
     width: 80%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -105,12 +51,12 @@ main {
 .little-info {
     display: flex;
     gap: 1em;
-    color: grey;
+    color: var(--main-subtext);
     font-size: 0.9em;
 }
 
 .summary {
-    color: white;
+    color: var(--main-main-text);
     padding-top: 1em;
 }
 
@@ -119,11 +65,11 @@ main {
 }
 
 .people-container > span {
-    color: grey;
+    color: var(--main-subtext);
 }
 
 .title {
-    color: white;
+    color: var(--main-title);
     font-weight:500;
     font-size: 2.75em;
 }
@@ -131,18 +77,26 @@ main {
 .award-info {
     height:auto;
     width: 80%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--main-subtext);
+}
+
+.main-info, .award-info {
+    background-color: var(--nav-bg);
+    border-radius: 1em;
+    min-width: 40em;
 }
 
 .award-title {
-    text-align: center
+    text-align: center;
+    color: var(--main-title)
 }
 
 footer {
     grid-area: footer;
+    background-color: var(--nav-bg);
 }
