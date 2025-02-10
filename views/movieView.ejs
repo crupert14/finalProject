@@ -3,12 +3,10 @@
 <head>
     <%- include ("partials/head.ejs") %>
     <%- include ("partials/movieVars.ejs") %>
-    <link rel="stylesheet" href="/css/movieView.css">
     <title><%= title %> info</title>
 </head>
 <body>
     <%- include ("partials/navbar.ejs") %>
-
     <main>
         <div class="main-info">
             <img class="poster" src="<%= img %>">
@@ -74,8 +72,7 @@
         </div>
     </main>
 
-    <footer>
-        <!-- Empty -->
-    </footer>
+    <%- include ("partials/footer.ejs") %>
+    <link rel="stylesheet" href="/css/movieView.css">
 </body>
 </html>

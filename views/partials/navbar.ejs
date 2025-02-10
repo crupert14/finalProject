@@ -1,25 +1,41 @@
 <style>
+    body {
+        display: grid;
+        grid-template-areas: 
+        "nav nav"
+        "side main"
+        "side main"
+        "footer footer";
+        grid-template-rows: auto 1fr 1fr auto;
+        grid-template-columns: 15% auto;
+    }
+    
     nav {
         grid-area: nav;
         background-color: var(--nav-bg);
         display: flex;
-        justify-content: center;
-        align-items: center;
     }
-    
-    .nav-container {
+
+    .nav-container-one {
+        width: 15%;
+    }
+
+    .nav-container-two {
         display: flex;
         gap: 2em;
         align-items: center;
         width: 80%;
-        min-width: 40em;
+        margin-left: auto;
+    }
+
+    .logo {
+        text-align: center;
+        padding-top: 1em;
     }
 
     .header-logo {
+        display: inline;
         height: 2.5em;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-        padding-left: 2em;
     }
 
     .search {
@@ -33,7 +49,7 @@
         flex-grow: 1;
         width: 90%;
         min-width: 10em;
-        max-width: 40em;
+        max-width: 60em;
         height: 2em;
         border-top-right-radius: 0.3em;
         border-bottom-right-radius: 0.3em;
@@ -58,16 +74,45 @@
     .links {
         display: flex;
         list-style: none;
-        gap: 2em;
+        gap: 5em;
         color: var(--nav-links);
         padding-right: 2em;
         font-size: 1em;
     }
+
+    /* Sidebar */
+
+    .side {
+        grid-area: side;
+        background-color: var(--nav-bg);
+        width: 100%;
+        height: auto;
+        padding-top: 2em;
+    }
+
+    .side-links {
+        list-style: none;
+        padding-left: 0.3em;
+        color: var(--nav-links);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+    }
 </style>
 <nav>
-    <div class="nav-container">
+    <div class="nav-container-one">
         <div class="logo">
             <img class="header-logo" src="/imgs/IMDB.jpg">
+        </div>
+    </div>
+    <div class="nav-container-two">
+        <div>
+            <ul class="links">
+                <li>Movies</li>
+                <li>Discussions</li>
+                <li>Watch</li>
+                <li>Help</li>
+            </ul>
         </div>
         <div class="search">
             <div class="search-icon-container">
@@ -75,12 +120,25 @@
             </div>
             <input type="text" class="search-bar" placeholder="Search YouScreen!">
         </div>
-        <div>
-            <ul class="links">
-                <li>Home</li>
-                <li>Contact</li>
-                <li>About Us</li>
-            </ul>
+        <div class="links">
+            <span>Login</span>
         </div>
     </div>
 </nav>
+
+<div class="side">
+    <ul class="side-links">
+        <li>Username</li>
+        <li>Updates</li>
+        <li>Library</li>
+        <li>Profile</li>
+        <li>Community</li>
+        <li>Forums</li>
+        <li>Groups</li>
+        <li>Users</li>
+        <li>YouScreen</li>
+        <li>See Rules</li>
+        <li>Announcements</li>
+        <li>About Us</li>
+    </ul>
+</div>

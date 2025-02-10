@@ -1,3 +1,12 @@
+/* body {
+    display: grid;
+    grid-template-areas: 
+    "nav"
+    "main"
+    "footer";
+    grid-template-rows: auto 1fr auto;
+} */
+
 main {
     grid-area: main;
     background-color: var(--main-bg);
@@ -75,9 +84,4 @@ main {
 .award-title {
     text-align: center;
     color: var(--main-title)
-}
-
-footer {
-    grid-area: footer;
-    background-color: var(--nav-bg);
 }
