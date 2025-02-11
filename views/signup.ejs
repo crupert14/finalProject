@@ -10,16 +10,16 @@
     <%- include ("partials/navbar.ejs") %>
     
     <main class="main">
-        <div class="signup-form">
+        <form action="/Signup" method="POST" class="signup-form">
             <h1 class="signup-header">Signup</h1>
             <div class="inputs">
-                <input type="text" class="username" placeholder="Username">
-                <input type="password" class="password" placeholder="Password">
-                <input type="password" class="password-conf" placeholder="Confirm Password">
+                <input type="text" class="username" name="user" placeholder="Username">
+                <input type="password" class="password" name="pass" placeholder="Password">
+                <input type="password" class="password-conf" name="passconf" placeholder="Confirm Password">
                 <button class="submit">Signup</button>
             </div>
-            <p class="message"></p>
-        </div>
+            <p class="message"> <%= err %> </p>
+        </form>
     </main>
 
 </body>

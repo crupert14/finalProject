@@ -6,6 +6,8 @@ require('dotenv').config()
 //app.set('views',  'public');
 app.engine('html', require('ejs').renderFile);
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const movieViewRoute = require('./routes/Movie');
 const homeRoute = require('./routes/Home');

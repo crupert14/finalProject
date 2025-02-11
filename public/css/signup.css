@@ -63,3 +63,7 @@ main {
     grid-area: error-message;
     text-align: center;
 }
+
+.message {
+    color: white;
+}
