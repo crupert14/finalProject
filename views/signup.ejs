@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("partials/head.ejs") %>
+    <%- include ("partials/movieVars.ejs") %>
+    <title>Signup</title>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+    <%- include ("partials/navbar.ejs") %>
+    
+    <main class="main">
+        <div class="signup-form">
+            <h1 class="signup-header">Signup</h1>
+            <div class="inputs">
+                <input type="text" class="username" placeholder="Username">
+                <input type="password" class="password" placeholder="Password">
+                <input type="password" class="password-conf" placeholder="Confirm Password">
+                <button class="submit">Signup</button>
+            </div>
+            <p class="message"></p>
+        </div>
+    </main>
+
+</body>
+</html>

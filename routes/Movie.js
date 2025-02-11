@@ -5,9 +5,6 @@ const path = require('path');
 router.get('/', async (req, res) => {
     const response = await fetch(`https://www.omdbapi.com/?t=joker&apikey=${process.env.OMDB_KEY}`);
     const data = await response.json();
-  
-    console.log(data);
-  
     //img: data["Search"][7].Poster, **Only works when an array of JSON objects is returned using the s= parameter
 
     if(data.Response != 'False') {

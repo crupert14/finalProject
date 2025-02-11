@@ -1,4 +1,5 @@
 <style>
+
     body {
         display: grid;
         grid-template-areas: 
@@ -72,10 +73,20 @@
     .links {
         display: flex;
         list-style: none;
-        gap: 5em;
+        gap: 2em;
         color: var(--nav-links);
         padding-right: 2em;
         font-size: 1em;
+    }
+
+    .links > a {
+        text-decoration: none;
+        color: var(--main-main-text);
+        transition: 300ms ease;
+    }
+
+    .links > a:hover {
+        color: grey;
     }
 
     .links > span {
@@ -127,7 +138,6 @@
     }
 
     /* Tables */
-
     table, tr, td {
         border: 1px solid var(--main-subtext);
         border-collapse: collapse;
@@ -142,7 +152,7 @@
         color: var(--nav-links);
     }
 
-    .title {
+    .movTitle {
         color: var(--nav-links);
     }
 
@@ -172,7 +182,8 @@
             <input type="text" class="search-bar" placeholder="Search YouScreen!">
         </div>
         <div class="links">
-            <span>Login</span>
+            <a href="/Login"><span>Login</span></a>
+            <a href="/Signup"><span>Signup</span></a>
         </div>
     </div>
 </nav>
@@ -195,59 +206,23 @@
 </div>
 
 <div class="side-two">
-    <table class="weekly">
-        <thead>
-            <tr>
-                <th class="table-head" colspan="2">Weekly Hype</th>
-            </tr>
-        </thead>
-        <tr>
-            <td class="num">1</td>
-            <td class="title">Title</td>
-        </tr>
-        <tr>
-            <td class="num">2</td>
-            <td class="title">Title</td>
-        </tr>
-        <tr>
-            <td class="num">3</td>
-            <td class="title">Title</td>
-        </tr>
-        <tr>
-            <td class="num">4</td>
-            <td class="title">Title</td>
-        </tr>
-        <tr>
-            <td class="num">5</td>
-            <td class="title">Title</td>
-        </tr>
-    </table>
-
-    <table class="monthly">
-        <thead>
-            <tr>
-                <th class="table-head" colspan="2">Monthly Hype</th>
-            </tr>
-        </thead>
-        <tr>
-            <td class="num">1</td>
-            <td class="title">Title</td>
-        </tr>
-        <tr>
-            <td class="num">2</td>
-            <td class="title">Title</td>
-        </tr>
-        <tr>
-            <td class="num">3</td>
-            <td class="title">Title</td>
-        </tr>
-        <tr>
-            <td class="num">4</td>
-            <td class="title">Title</td>
-        </tr>
-        <tr>
-            <td class="num">5</td>
-            <td class="title">Title</td>
-        </tr>
-    </table>
+    <% for (let i=0; i < 2; i++) { %>
+        <table class="weekly">
+            <thead>
+                <tr>
+                    <% if(i == 0) {%>
+                        <th class="table-head" colspan="2">Weekly Hype</th>
+                    <% } else {%>
+                        <th class="table-head" colspan="2">Monthly Hype</th>
+                    <% } %>
+                </tr>
+            </thead>
+            <% for (let j=0; j < 5; j++) { %>
+                <tr>
+                    <td class="num"><%= j + 1 %></td>
+                    <td class="movTitle">Title</td>
+                </tr>
+            <% } %>
+        </table>
+    <% } %>
 </div>

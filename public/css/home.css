@@ -8,6 +8,7 @@ main {
     "central";
     grid-template-columns: 1fr;
     background-color: var(--main-bg);
+    color: var(--main-main-text);
 }
 
 .central {
@@ -31,7 +32,6 @@ main {
     "poster synopsis";
     grid-template-columns: auto 3fr;
     grid-template-rows: 0.5fr 1fr;
-    /* background-color: var(--nav-bg); */
     border-radius: 1em;
 }
 
@@ -115,3 +115,17 @@ main {
 }
 
 /* End right side */
+
+.fmd {
+    padding-top: 1.5em;
+    padding-left: 1em;
+}
+
+.discussion {
+    margin-top: 1em;
+    margin-left: 1em;
+    height: 70%;
+    width: 95%;
+    background-color: var(--main-bg);
+    border-radius: 1em;
+}
