@@ -159,6 +159,31 @@
     .num {
         color: var(--nav-links);
     }
+
+    .search-results {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        max-height: 20em;
+        overflow-y: auto;
+        z-index: 10;
+        display: none;
+    }
+
+    .search-results p {
+        padding: 2em;
+        margin: 0;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    
+    .search-results p:hover {
+        background: #f0f0f0;
+    }
 </style>
 <nav>
     <div class="nav-container-one">
@@ -179,7 +204,8 @@
             <div class="search-icon-container">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </div>
-            <input type="text" class="search-bar" placeholder="Search YouScreen!">
+            <input type="text" class="search-bar" id="searchbar" placeholder="Search YouScreen!">
+            <div id="search-results" class="search-results"></div>
         </div>
         <div class="links">
             <% if(!loggedin) { %>
@@ -235,3 +261,4 @@
         </table>
     <% } %>
 </div>
+<script src="/js/search.js"></script>
