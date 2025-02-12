@@ -2,6 +2,8 @@ FOLDER STRUCTURE
 
 - database
     Where we will house any logic that connects to the database
+- middleware
+    Used to store middleware like authenticating logins and checking sessions
 - models
     Self explanatory, folder for database models, if you don't know what it is
     theres alot of resources online or shoot me(Cade) a text at +1(609)678-7207

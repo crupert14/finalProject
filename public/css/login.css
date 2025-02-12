@@ -62,4 +62,5 @@ main {
 .message {
     grid-area: error-message;
     text-align: center;
+    color: white;
 }

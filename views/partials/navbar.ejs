@@ -182,15 +182,24 @@
             <input type="text" class="search-bar" placeholder="Search YouScreen!">
         </div>
         <div class="links">
-            <a href="/Login"><span>Login</span></a>
-            <a href="/Signup"><span>Signup</span></a>
+            <% if(!loggedin) { %>
+                <a href="/Login"><span>Login</span></a>
+                <a href="/Signup"><span>Signup</span></a>
+            <% } else { %>
+                <span><%= username %></span>
+                <a href='/Logout'><span>Logout</span></a>
+            <% } %>
         </div>
     </div>
 </nav>
 
 <div class="side">
     <ul class="side-links transition">
-        <li>Username</li>
+        <%if (!loggedin) {%>
+            <li>Not logged in</li>
+        <% } else { %>
+            <li><%= username %></li>
+        <% } %>
         <li>Updates</li>
         <li>Library</li>
         <li>Profile</li>

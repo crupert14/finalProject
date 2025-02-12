@@ -79,9 +79,8 @@ router.post('/', async (req, res) => {
                 throw new Error("Failed to update bin");
             }
             else {
-                res.render('signup.ejs', {
-                    err: "User successfully added"
-                });
+                req.session.user = { username: user };
+                res.redirect('/Signup');
             }
 
         }
