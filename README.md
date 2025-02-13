@@ -1,7 +1,5 @@
 FOLDER STRUCTURE
 
-- database
-    Where we will house any logic that connects to the database
 - middleware
     Used to store middleware like authenticating logins and checking sessions
 - models
@@ -16,6 +14,8 @@ FOLDER STRUCTURE
     For routes to different pages on the site, will hold the logic to display the page
 - src
     Will hold CSS and JavaScript files meant for webpage looks/interaction
+- utils
+    Helper functions to make database connections more efficent and prevent redundant function defintions
 - views
     Will be accessed by the routes file, will either hold HTML, ejs, pug or other
     front-end languages that will be used to display the web page

@@ -3,8 +3,13 @@ const searchResults = document.getElementById('search-results');
 
 let timeout = null;
 
+async function loadMoviePage(title) {
+    // const response = await fetch(`/MovieInfo?title=${encodeURIComponent(title)}`);
+    // const data = await response.json();
+    window.location.href = `/MovieInfo?title=${encodeURIComponent(title)}`;
+}
+
 function displayResults(results) {
-    console.log("Results: " + results);
     if (results.length === 0) {
         searchResults.innerHTML = "<p>No results found</p>";
         searchResults.style.display = "block";
@@ -21,14 +26,14 @@ function displayResults(results) {
 function selectResult(title) {
     searchbar.value = title;
     searchResults.style.display = "none";
+
+    loadMoviePage(encodeURIComponent(title));
 }
 
 function adjustResultsWidth() {
-    // ✅ Ensure the results match the search bar width
     searchResults.style.width = `${searchbar.offsetWidth}px`;
 }
 
-// ✅ Resize results dynamically if window resizes
 window.addEventListener("resize", adjustResultsWidth);
 
 searchbar.addEventListener('keyup', async () => {
@@ -45,7 +50,7 @@ searchbar.addEventListener('keyup', async () => {
             const data = await response.json();
             displayResults(data);
         } catch (error) {
-            console.log("Search error:", error);
+            console.error("Search error:", error);
         }
     }, 500);
 });
@@ -58,5 +63,6 @@ document.addEventListener("click", (event) => {
     }
     else {
         document.getElementById("search-results").style.display = "block";
+        displayResults("");
     }
 });

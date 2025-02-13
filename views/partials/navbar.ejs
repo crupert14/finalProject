@@ -79,13 +79,13 @@
         font-size: 1em;
     }
 
-    .links > a {
+    .links > a, .side-links > a {
         text-decoration: none;
         color: var(--main-main-text);
         transition: 300ms ease;
     }
 
-    .links > a:hover {
+    .links > a:hover, .side-links > a:hover {
         color: grey;
     }
 
@@ -194,7 +194,7 @@
     <div class="nav-container-two">
         <div>
             <ul class="links transition">
-                <li>Movies</li>
+                <a href="/Movies"><li>Movies</li></a>
                 <li>Discussions</li>
                 <li>Watch</li>
                 <li>Help</li>
@@ -222,7 +222,7 @@
 <div class="side">
     <ul class="side-links transition">
         <%if (!loggedin) {%>
-            <li>Not logged in</li>
+            <a href='/Login'><li>Not logged in</li></a>
         <% } else { %>
             <li><%= username %></li>
         <% } %>

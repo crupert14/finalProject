@@ -3,9 +3,10 @@ const router = express.Router();
 const path = require('path');
 require('dotenv').config();
 
+const { getMovieBySearch } = require('../utils/jsonBinService');
+
 const searchResults = async(query) => {
-    const response = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=${process.env.OMDB_KEY}`);
-    const movies = await response.json();
+    const movies = await getMovieBySearch(query, "s");
     return movies.Search;
 };
 

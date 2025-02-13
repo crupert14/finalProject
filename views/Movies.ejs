@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("partials/head.ejs") %>
+    <%- include ("partials/movieVars.ejs") %>
+    <title>Signup</title>
+    <link rel="stylesheet" href="/css/movies.css">
+</head>
+<body>
+    <%- include ("partials/navbar.ejs") %>
+    <% let movies = ["The Shawshank Redemption", "The Dark Knight", "Pulp Fiction", "The Godfather", "The Lord of the Rings: The Fellowship of the Ring", "The Lord of the Rings: The Return of the King”, “Schindler's List", "The Godfather Part II", "12 Angry Men", "The Good, the Bad and the Ugly"]; %>
+    <% let votes = ["2,995,055", "2,974,670", "2,289,917", "2,090,520", "2,082,432", "2,044,929", "1,501,081", "1,405,378", "906,119", "838,907"]%>
+
+    <main class="main">
+        <div class="bg">
+            <h1>Top 10 Movies of all Time</h1>
+        </div>
+        <div class="movies-container">
+            <% for(let i = 0;i < movies.length;i++) { %>
+                <span class="movies" onclick="window.location.href='/MovieInfo?title=<%= encodeURIComponent(movies[i]) %>'">
+                    <%= i+1 + ". "%> <%= movies[i] %>
+                    <br>
+                    <span class="votes">
+                        <%= votes[i] %> votes
+                    </span>
+                </span>
+                <br>
+            <% } %>
+        </div>
+    </main>
+</body>
+</html>

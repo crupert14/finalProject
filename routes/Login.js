@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
+const { getJSONData } = require('../utils/jsonBinService');
+
 router.get('/', async (req, res) => {
     res.render('login.ejs', {
         err: ""
@@ -21,27 +23,6 @@ router.post('/', async (req, res) => {
             err: "No field can be left blank!"
         });
     }
-
-    const url = "https://api.jsonbin.io/v3/b/"+process.env.JSONBIN_USER_BINID+"?meta=false";
-
-    const getJSONData = async () => {
-
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'X-Master-Key': process.env.JSONBIN_KEY,
-                'Content-Type': 'application/json'
-            }   
-        });
-
-        let data = await response.json();
-    
-        delete data.metadata;
-        delete data.records;
-
-        data = JSON.parse(JSON.stringify(data));
-        return data;
-    };
 
     try {
         const data = await getJSONData();

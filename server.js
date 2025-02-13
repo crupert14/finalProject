@@ -23,6 +23,7 @@ const signupRoute = require('./routes/Signup');
 const loginRoute = require('./routes/Login');
 const logoutRoute = require('./routes/Logout');
 const searchRoute = require('./routes/Search');
+const moviesRoute = require('./routes/Movies');
 
 app.use((req, res, next) => {
   res.locals.loggedin = req.session.user ? true : false;
@@ -36,6 +37,7 @@ app.use('/Signup', signupRoute);
 app.use('/Login', loginRoute);
 app.use('/Logout', logoutRoute);
 app.use(searchRoute);
+app.use('/Movies', moviesRoute);
 
 app.listen(process.env.PORT, () => {
   console.log('Server listening on port ' + process.env.PORT);

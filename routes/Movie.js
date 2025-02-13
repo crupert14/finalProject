@@ -2,31 +2,31 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
+const { getMovieBySearch } = require('../utils/jsonBinService');
+
 router.get('/', async (req, res) => {
-    const response = await fetch(`https://www.omdbapi.com/?t=joker&apikey=${process.env.OMDB_KEY}`);
-    const data = await response.json();
-    //img: data["Search"][7].Poster, **Only works when an array of JSON objects is returned using the s= parameter
+    const data = await getMovieBySearch(req.query.title, "t");
 
     if(data.Response != 'False') {
         res.render('movieView.ejs', {
-        img: data.Poster,
-        title: data.Title,
-        year: data.Year,
-        rated: data.Rated,
-        released: data.Released,
-        runtime: data.Runtime,
-        genre: data.Genre,
-        summary: data.Plot,
-        cast: data.Actors,
-        director: data.Director,
-        writers: data.Writer,
-        languages: data.Language,
-        country: data.Country,
-        awards: data.Awards,
-        imdbrating: data.imdbRating,
-        rt: data.Ratings[1].Value,
-        meta: data.Metascore,
-        boxoffice: data.BoxOffice
+            img: data.Poster || 'default-image.jpg', // Use a default image if Poster is missing
+            title: data.Title || 'Unknown Title', // Default title if missing
+            year: data.Year || 'Unknown Year', // Default year
+            rated: data.Rated || 'N/A', // Default rating
+            released: data.Released || 'Unknown Release Date', // Default release date
+            runtime: data.Runtime || 'Unknown Runtime', // Default runtime
+            genre: data.Genre || 'Unknown Genre', // Default genre
+            summary: data.Plot || 'No plot available.', // Default summary
+            cast: data.Actors || 'No cast information available.', // Default cast
+            director: data.Director || 'Unknown Director', // Default director
+            writers: data.Writer || 'Unknown Writer', // Default writers
+            languages: data.Language || 'Unknown Languages', // Default language
+            country: data.Country || 'Unknown Country', // Default country
+            awards: data.Awards || 'No awards available.', // Default awards
+            imdbrating: data.imdbRating || 'N/A', // Default IMDB rating
+            rt: data.Ratings?.[1]?.Value || 'N/A', // Default Rotten Tomatoes rating (check if Ratings[1] exists)
+            meta: data.Metascore || 'N/A', // Default Metascore
+            boxoffice: data.BoxOffice || 'N/A' // Default Box Office
         });
     }
     else {
