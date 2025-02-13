@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-const { getMovieBySearch } = require('../utils/jsonBinService');
+const { getMovieBySearch } = require('../utils/omdbService');
 
 router.get('/', async (req, res) => {
-    const data = await getMovieBySearch(req.query.title, "t");
+    const data = await getMovieBySearch(encodeURIComponent(req.query.title), "t");
+
+    console.log(data);
 
     if(data.Response != 'False') {
         res.render('movieView.ejs', {

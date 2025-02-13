@@ -2,12 +2,6 @@ require('dotenv').config
 
 const url = "https://api.jsonbin.io/v3/b/"+process.env.JSONBIN_USER_BINID+"?meta=false";
 
-const getMovieBySearch = async (search, type) => {
-    const data = await fetch(`https://www.omdbapi.com/?${type}=${search}&apikey=${process.env.OMDB_KEY}`);
-    const response = await data.json();
-    return response;
-}
-
 const getJSONData = async () => {
 
     const response = await fetch(url, {
@@ -38,4 +32,4 @@ async function updateJSONData(users) {
     });
 }
 
-module.exports =  { getJSONData, updateJSONData, getMovieBySearch };
+module.exports =  { getJSONData, updateJSONData };
