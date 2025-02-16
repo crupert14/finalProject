@@ -1,8 +1,8 @@
 require('dotenv').config
 
-const url = "https://api.jsonbin.io/v3/b/"+process.env.JSONBIN_USER_BINID+"?meta=false";
+const getJSONData = async (binid) => {
 
-const getJSONData = async () => {
+    const url = `https://api.jsonbin.io/v3/b/${binid}?meta=false`;
 
     const response = await fetch(url, {
         method: 'GET',
@@ -21,15 +21,18 @@ const getJSONData = async () => {
     return data;
 };
 
-async function updateJSONData(users) {
+async function updateJSONData(data, binid) {
+
+    const url = `https://api.jsonbin.io/v3/b/${binid}?meta=false`;
+
     return fetch(url, {
         method: "PUT",
         headers: {
             "X-Master-Key": process.env.JSONBIN_KEY,
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ users })
+        body: JSON.stringify(data)
     });
 }
 
-module.exports =  { getJSONData, updateJSONData };
+module.exports = { getJSONData, updateJSONData };

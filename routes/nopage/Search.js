@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 require('dotenv').config();
 
-const { getMovieBySearch } = require('../utils/omdbService');
+const { getMovieBySearch } = require('../../utils/omdbService');
 
 const searchResults = async(query) => {
     const movies = await getMovieBySearch(query, "s");

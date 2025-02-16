@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-
-const { getJSONData } = require('../utils/jsonBinService');
+require('dotenv').config();
+const { getJSONData } = require('../../utils/jsonBinService');
 
 router.get('/', async (req, res) => {
-    res.render('login.ejs', {
+    res.render('topNavBar/login.ejs', {
         err: ""
     })    
 });
@@ -25,8 +25,7 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        const data = await getJSONData();
-
+        const data = await getJSONData(process.env.JSONBIN_USER_BINID);
         const validUser = data.users.find(u => u.username === user && u.password === pass);
 
         if (validUser) {

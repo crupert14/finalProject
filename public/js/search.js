@@ -4,8 +4,6 @@ const searchResults = document.getElementById('search-results');
 let timeout = null;
 
 async function loadMoviePage(title) {
-    // const response = await fetch(`/MovieInfo?title=${encodeURIComponent(title)}`);
-    // const data = await response.json();
     window.location.href = `/MovieInfo?title=${encodeURIComponent(title)}`;
 }
 
@@ -17,17 +15,21 @@ function displayResults(results) {
     }
 
     searchResults.innerHTML = results
-        .map(movie => `<p onclick="selectResult('${movie.Title}')">${movie.Title} (${movie.Year})</p>`)
+        .map(movie => {
+            const safeTitle = encodeURIComponent(movie.Title);
+            return `<p onclick="selectResult(&quot;${safeTitle}&quot;)">${movie.Title.replace(/&/g, "&amp;")} (${movie.Year})</p>`;
+        })
         .join("");
 
     searchResults.style.display = "block";
 }
 
 function selectResult(title) {
-    searchbar.value = title;
+    const decodedTitle = decodeURIComponent(title); // ✅ Decode it
+    searchbar.value = decodedTitle;
     searchResults.style.display = "none";
 
-    loadMoviePage(encodeURIComponent(title));
+    loadMoviePage(decodedTitle); // ✅ Pass the correct title
 }
 
 function adjustResultsWidth() {

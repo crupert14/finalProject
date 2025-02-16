@@ -53,6 +53,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content:end;
+    padding-bottom: 1em;
 }
 
 .info > p {

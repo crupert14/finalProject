@@ -5,9 +5,9 @@ const path = require('path');
 const { getMovieBySearch } = require('../utils/omdbService');
 
 router.get('/', async (req, res) => {
-    const data = await getMovieBySearch(encodeURIComponent(req.query.title), "t");
 
-    console.log(data);
+    const title = req.query.title;
+    const data = await getMovieBySearch(title, "t");
 
     if(data.Response != 'False') {
         res.render('movieView.ejs', {

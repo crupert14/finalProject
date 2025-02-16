@@ -3,10 +3,10 @@
     body {
         display: grid;
         grid-template-areas: 
-        "nav nav nav"
-        "side main side-two";
+        "nav nav"
+        "side main";
         grid-template-rows: auto 1fr;
-        grid-template-columns: 15% auto 15%;
+        grid-template-columns: 15% auto;
     }
     
     nav {
@@ -23,9 +23,10 @@
         display: flex;
         gap: 2em;
         align-items: center;
-        width: 80%;
-        margin-left: auto;
+        flex-grow: 1;
+        min-width: 0;
     }
+    
 
     .logo {
         text-align: center;
@@ -35,26 +36,30 @@
     .header-logo {
         display: inline;
         height: 2.5em;
+        width: auto;
     }
 
     .search {
         display: flex;
-        flex-grow: 1;
+        flex-grow: 1; 
         justify-content: center;
         position: relative;
+        max-width: 100%;
+        min-width: 0;
     }
     
+    
     .search-bar {
-        flex-grow: 1;
-        width: 90%;
+        flex: 1 1 auto;
         min-width: 10em;
-        max-width: 60em;
+        max-width: 40em;
         height: 2em;
         border-top-right-radius: 0.3em;
         border-bottom-right-radius: 0.3em;
         transition: width 0.3s ease;
         text-indent: 1em;
     }
+    
     
     .search-icon-container {
         height: 1.55em;
@@ -104,17 +109,9 @@
         grid-area: side;
         background-color: var(--nav-bg);
         width: 100%;
+        min-width: 10em;
         height: auto;
         padding-top: 2em;
-    }
-
-    .side-two {
-        padding: 2em;
-        grid-area: side-two;
-        background-color: var(--nav-bg);
-        display: flex;
-        flex-direction: column;
-        gap: 5em;
     }
     
     .side-links {
@@ -146,18 +143,6 @@
     td {
         height: 2em;
         text-align: center;
-    }
-
-    .table-head {
-        color: var(--nav-links);
-    }
-
-    .movTitle {
-        color: var(--nav-links);
-    }
-
-    .num {
-        color: var(--nav-links);
     }
 
     .search-results {
@@ -233,32 +218,11 @@
         <li>Forums</li>
         <li>Groups</li>
         <li>Users</li>
-        <li>YouScreen</li>
+        <li>Hype Leaderboard</li>
         <li>See Rules</li>
         <li>Announcements</li>
         <li>About Us</li>
     </ul>
 </div>
 
-<div class="side-two">
-    <% for (let i=0; i < 2; i++) { %>
-        <table class="weekly">
-            <thead>
-                <tr>
-                    <% if(i == 0) {%>
-                        <th class="table-head" colspan="2">Weekly Hype</th>
-                    <% } else {%>
-                        <th class="table-head" colspan="2">Monthly Hype</th>
-                    <% } %>
-                </tr>
-            </thead>
-            <% for (let j=0; j < 5; j++) { %>
-                <tr>
-                    <td class="num"><%= j + 1 %></td>
-                    <td class="movTitle">Title</td>
-                </tr>
-            <% } %>
-        </table>
-    <% } %>
-</div>
 <script src="/js/search.js"></script>

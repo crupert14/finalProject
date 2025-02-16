@@ -3,10 +3,10 @@ const router = express.Router();
 const path = require('path');
 require('dotenv').config();
 
-const { getJSONData, updateJSONData } = require('../utils/jsonBinService');
+const { getJSONData, updateJSONData } = require('../../utils/jsonBinService');
 
 router.get('/', async (req, res) => {
-    res.render('signup.ejs', { err: "" })    
+    res.render('topNavBar/signup.ejs', { err: "" })    
 });
 
 router.post('/', async (req, res) => {
@@ -30,20 +30,18 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        let data = await getJSONData();
+        let data = await getJSONData(process.env.JSONBIN_USER_BINID);
         const userExists = data.users.some(u => u.username === user);
 
         if(userExists) {
-            res.render('signup.ejs', {
+            res.render('topNavBar/signup.ejs', {
                 err: "Username already in use"
             });
         }
         else {
-            data.users.push({username: user, password: pass});
+            data.users.push({username: user, password: pass, favorites: []});
 
-            users = data.users;
-
-            const updateResponse = await updateJSONData(users);
+            const updateResponse = await updateJSONData({users: data.users}, process.env.JSONBIN_USER_BINID);
 
             if (!updateResponse.ok)  {
                 throw new Error("Failed to update bin");

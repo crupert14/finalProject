@@ -17,13 +17,16 @@ app.use(session({
     cookie: { secure: false, maxAge: 1000 * 60 * 60 }
 }));
 
+//Base Routes
 const movieViewRoute = require('./routes/Movie');
 const homeRoute = require('./routes/Home');
-const signupRoute = require('./routes/Signup');
-const loginRoute = require('./routes/Login');
-const logoutRoute = require('./routes/Logout');
-const searchRoute = require('./routes/Search');
-const moviesRoute = require('./routes/Movies');
+//No page
+const logoutRoute = require('./routes/nopage/Logout');
+const searchRoute = require('./routes/nopage/Search');
+//Top Nav Bar
+const signupRoute = require('./routes/topNavBar/Signup');
+const loginRoute = require('./routes/topNavBar/Login');
+const moviesRoute = require('./routes/topNavBar/Movies');
 
 app.use((req, res, next) => {
   res.locals.loggedin = req.session.user ? true : false;
