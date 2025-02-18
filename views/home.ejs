@@ -10,33 +10,32 @@
     <%- include ("partials/navbar.ejs") %>
 
     <main class="main">
-        <!-- Central Area -->
-         <div class="central">
-            <section class="trending">
-                <div class="poster">
-                    <img src="imgs/testPoster.jpg">
-                </div>
-                <div class="info">
-                    <h1>Trending: Title of movie</h1>
-                    <p>Genre and Year</p>
-                </div>
-                <div class="synopsis">
-                    Arthur Fleck, a party clown and a failed 
-                    stand-up comedian, leads an impoverished life
-                    with his ailing mother. However, when society
-                    shuns him and brands him as a freak, he 
-                    decides to embrace the life of chaos in Gotham City.
-                </div>
-            </section>
-            <section class="favorite-discussion-one fmd">
-                <h1>Favorite Movie Discussion 1</h1>
-                <div class="discussion"></div>
-            </section>
-            <section class="favorite-discussion-two fmd">
-                <h1>Favorite Movie Discussion 2</h1>
-                <div class="discussion"></div>
-            </section>
-        </div>
+        <table class="announcements">
+            <thead>
+                <tr>
+                    <th>Community Announcements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i < announcements.length;i++) {%>
+                    <tr class="row">
+                        <td>
+                            <div class="ann">
+                                <div class="pfp">
+                                    <img src="/imgs/defaultPFP.png">
+                                </div>
+                                <div class="info">
+                                    <h1><%= announcements[i].title %></h1>
+                                    <p><%= announcements[i].date %></p>
+                                    <p><%= announcements[i].from %></p>
+                                    <p><%= announcements[i].message %></p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
     </main>
 </body>
 </html>

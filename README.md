@@ -12,8 +12,6 @@ FOLDER STRUCTURE
     For storing images/assets that will be used on the front end
 - routes
     For routes to different pages on the site, will hold the logic to display the page
-- src
-    Will hold CSS and JavaScript files meant for webpage looks/interaction
 - utils
     Helper functions to make database connections more efficent and prevent redundant function defintions
 - views

@@ -39,7 +39,17 @@ router.post('/', async (req, res) => {
             });
         }
         else {
-            data.users.push({username: user, password: pass, favorites: []});
+            data.users.push({
+                username: user, 
+                password: pass, 
+                pfp: "",
+                bio: "",
+                lastOnline: "",
+                favorites: [],
+                forumPosts: [],
+                reviews: [],
+                hypeVotes: []
+            });
 
             const updateResponse = await updateJSONData({users: data.users}, process.env.JSONBIN_USER_BINID);
 

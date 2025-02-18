@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
         const title = req.query.title;
         const data = await getMovieBySearch(title, "t");
     }
-    res.render('Movies.ejs');
+    res.render('topNavBar/Movies.ejs');
 });
 
 module.exports = router;
