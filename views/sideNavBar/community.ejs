@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("../partials/head.ejs") %>
+    <%- include ("../partials/movieVars.ejs") %>
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/sideNavBar/community.css">
+</head>
+<body>
+    <%- include ("../partials/navbar.ejs") %>
+
+    <main class="main">
+        <table class="announcements">
+            <thead>
+                <tr>
+                    <th>Community Announcements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i < announcements.length;i++) {%>
+                    <tr class="row">
+                        <td>
+                            <div class="ann">
+                                <div class="pfp">
+                                    <img src="/imgs/defaultPFP.png">
+                                </div>
+                                <div class="info">
+                                    <h1><%= announcements[i].title %></h1>
+                                    <p><%= announcements[i].date %></p>
+                                    <p><%= announcements[i].from %></p>
+                                    <p><%= announcements[i].message %></p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

@@ -4,12 +4,7 @@ const path = require('path');
 const { getJSONData } = require('../utils/jsonBinService');
 
 router.get('/', async (req, res) => {
-    const data = await getJSONData(process.env.JSONBIN_ANNOUNCEMENT_BINDID);
-    const resp = data.announcements;
-
-    res.render('home.ejs', {
-        announcements: resp
-    })    
+    res.render('home.ejs');
 });
 
 module.exports = router;

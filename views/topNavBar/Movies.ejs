@@ -8,25 +8,77 @@
 </head>
 <body>
     <%- include ("../partials/navbar.ejs") %>
-    <% let movies = ["The Shawshank Redemption", "The Dark Knight", "Pulp Fiction", "The Godfather", "The Lord of the Rings: The Fellowship of the Ring", "The Lord of the Rings: The Return of the King", "Schindler's List", "The Godfather Part II", "12 Angry Men", "The Good, the Bad and the Ugly"]; %>
-    <% let movies2 = ["The Shawshank Redemption", "The Dark Knight", "Pulp Fiction", "The Godfather", "The Lord of the Rings: The Fellowship of the Ring", "The Lord of the Rings: The Return of the King", "Schindler%27s List", "The Godfather Part II", "12 Angry Men", "The Good, the Bad and the Ugly"]; %>
-    <% let votes = ["2,995,055", "2,974,670", "2,289,917", "2,090,520", "2,082,432", "2,044,929", "1,501,081", "1,405,378", "906,119", "838,907"]%>
+    <% let movies = [
+            "The Shawshank Redemption",
+             "The Dark Knight", 
+             "Pulp Fiction", 
+             "The Godfather",
+              "The Lord of the Rings: The Fellowship of the Ring", 
+              "The Lord of the Rings: The Return of the King", 
+              "Schindler's List", 
+              "The Godfather Part II",
+              "12 Angry Men", 
+              "The Good, the Bad and the Ugly"
+        ] 
+    %>
+    <% let movies2 = [
+            "The Shawshank Redemption", 
+            "The Dark Knight", 
+            "Pulp Fiction", 
+            "The Godfather", 
+            "The Lord of the Rings: The Fellowship of the Ring", 
+            "The Lord of the Rings: The Return of the King", 
+            "Schindler%27s List", 
+            "The Godfather Part II", 
+            "12 Angry Men", 
+            "The Good, the Bad and the Ugly"
+        ] 
+    %>
+    <% let votes = [
+            "2,995,055", 
+            "2,974,670", 
+            "2,289,917", 
+            "2,090,520", 
+            "2,082,432", 
+            "2,044,929", 
+            "1,501,081", 
+            "1,405,378", 
+            "906,119", 
+            "838,907"
+        ]
+    %>
+    <% let posters = [
+            'https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BYTViYTE3ZGQtNDBlMC00ZTAyLTkyODMtZGRiZDg0MjA2YThkXkEyXkFqcGc@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BNzIxMDQ2YTctNDY4MC00ZTRhLTk4ODQtMTVlOWY4NTdiYmMwXkEyXkFqcGc@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BMTZkMjBjNWMtZGI5OC00MGU0LTk4ZTItODg2NWM3NTVmNWQ4XkEyXkFqcGc@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BNjM1ZDQxYWUtMzQyZS00MTE1LWJmZGYtNGUyNTdlYjM3ZmVmXkEyXkFqcGc@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BNzc1OWY5MjktZDllMi00ZDEzLWEwMGItYjk1YmRhYjBjNTVlXkEyXkFqcGc@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BYjE4NzdmOTYtYjc5Yi00YzBiLWEzNDEtNTgxZGQ2MWVkN2NiXkEyXkFqcGc@._V1_SX300.jpg',
+            'https://m.media-amazon.com/images/M/MV5BMWM5ZjQxM2YtNDlmYi00ZDNhLWI4MWUtN2VkYjBlMTY1ZTkwXkEyXkFqcGc@._V1_SX300.jpg'
+        ]
+    %>
 
     <main class="main">
-        <div class="bg">
-            <h1>Top 10 Movies of all Time</h1>
-        </div>
-        <div class="movies-container">
-            <% for(let i = 0;i < movies2.length;i++) { %>
-                <span class="movies" onclick="window.location.href='/MovieInfo?title=<%= movies2[i] %>'">
-                    <%= i+1 + ". "%> <%= movies[i] %>
-                    <br>
-                    <span class="votes">
-                        <%= votes[i] %> votes
+        <div class="wrapper">
+            <div class="bg">
+                <h1>Top 10 Movies of all Time</h1>
+            </div>
+            <div class="movies-container">
+                <% for(let i = 0;i < movies2.length;i++) { %>
+                    <span class="movies">
+                        <img src="<%= posters[i] %>" onclick="window.location.href='/MovieInfo?title=<%= movies2[i] %>'" class="poster">
+                        <br>
+                        <span class="votes">
+                           <%= i + 1 %> <%= ". " %> <%= votes[i] %> votes
+                        </span>
+                        <br>
                     </span>
-                </span>
-                <br>
-            <% } %>
+                    <br>
+                <% } %>
+            </div>
         </div>
     </main>
 </body>

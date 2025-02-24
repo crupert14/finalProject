@@ -29,6 +29,7 @@ const loginRoute = require('./routes/topNavBar/Login');
 const moviesRoute = require('./routes/topNavBar/Movies');
 //Side Nav Bar
 const profileRoute = require('./routes/sideNavBar/Profile');
+const communityRoute = require('./routes/sideNavBar/Community');
 
 app.use((req, res, next) => {
   res.locals.loggedin = req.session.user ? true : false;
@@ -44,6 +45,7 @@ app.use('/Logout', logoutRoute);
 app.use(searchRoute);
 app.use('/Movies', moviesRoute);
 app.use('/Profile', profileRoute);
+app.use('/Community', communityRoute);
 
 app.listen(process.env.PORT, () => {
   console.log('Server listening on port ' + process.env.PORT);

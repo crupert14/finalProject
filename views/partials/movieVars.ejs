@@ -1,10 +1,31 @@
 <style>
     :root {
-        --main-bg: #1F1F1F;
-        --main-main-text: white;
-        --main-title: white;
-        --main-subtext: grey;
-        --nav-bg: #121212;
-        --nav-links: white;
+        /* Branding */
+        --brand: #0af;
+        --brand: hsl(200 100% 50%);
+        --brand-hue: 200;
+        --brand-saturation: 100%;
+        --brand-lightness: 50%;
+
+        /* Dark theme */
+        --brand-dark: hsl(
+            var(--brand-hue)
+            calc(var(--brand-saturation) / 2)
+            calc(var(--brand-lightness) / 1.5)
+        );
+
+        /* Text */
+        --text1-dark: hsl(var(--brand-hue) 15% 85%);
+        --text2-dark: hsl(var(--brand-hue) 5% 65%);
+
+        /* Surfaces */
+        --surface1-dark: hsl(var(--brand-hue) 10% 10%);
+        --surface2-dark: hsl(var(--brand-hue) 10% 15%);
+        --surface3-dark: hsl(var(--brand-hue) 5%  20%);
+        --surface4-dark: hsl(var(--brand-hue) 5% 25%);
+
+        /* Shadows */
+        --surface-shadow-dark: hsl(var(--brand-hue) 50% 10%);
+        --shadow-strength-dark: .8;
     }
 </style>

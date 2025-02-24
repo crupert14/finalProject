@@ -3,30 +3,28 @@
     body {
         display: grid;
         grid-template-areas: 
-        "nav nav"
+        "side nav"
         "side main";
         grid-template-rows: auto 1fr;
         grid-template-columns: 15% auto;
+        background-color: var(--surface2-dark);
     }
     
     nav {
         grid-area: nav;
-        background-color: var(--nav-bg);
+        background-color: var(--surface1-dark);
         display: flex;
-    }
-
-    .nav-container-one {
-        width: 15%;
+        height: 4em;
     }
 
     .nav-container-two {
         display: flex;
         gap: 2em;
         align-items: center;
+        justify-content: space-between;
         flex-grow: 1;
         min-width: 0;
-    }
-    
+    } 
 
     .logo {
         text-align: center;
@@ -41,6 +39,7 @@
 
     .search {
         display: flex;
+        flex-direction: column;
         flex-grow: 1; 
         justify-content: center;
         position: relative;
@@ -48,45 +47,28 @@
         min-width: 0;
     }
     
-    
     .search-bar {
         flex: 1 1 auto;
         min-width: 10em;
         max-width: 40em;
         height: 2em;
-        border-top-right-radius: 0.3em;
-        border-bottom-right-radius: 0.3em;
+        border-radius: 0.3em;
         transition: width 0.3s ease;
         text-indent: 1em;
-    }
-    
-    
-    .search-icon-container {
-        height: 1.55em;
-        width: 2.75em;
-        border: 1px solid grey;
-        background-color: grey;
-        border-top-left-radius: 1.5em;
-        border-bottom-left-radius: 1.5em;
-        text-align: center;
-    }
-    
-    .search-icon {
-        padding-top: 0.2em;
     }
     
     .links {
         display: flex;
         list-style: none;
         gap: 2em;
-        color: var(--nav-links);
+        color: var(--text1-dark);
         padding-right: 2em;
         font-size: 1em;
     }
 
     .rm-style {
         text-decoration: none;
-        color: var(--main-main-text);
+        color: var(--text1-dark);
         transition: 300ms ease;
     }
 
@@ -107,17 +89,16 @@
 
     .side {
         grid-area: side;
-        background-color: var(--nav-bg);
+        background-color: var(--surface1-dark);
         width: 100%;
         min-width: 10em;
         height: auto;
-        padding-top: 2em;
     }
     
     .side-links {
         list-style: none;
         padding-left: 0.3em;
-        color: var(--nav-links);
+        color: var(--text1-dark);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -134,21 +115,9 @@
         color: grey;
     }
 
-    /* Tables */
-    table, tr, td {
-        border: 1px solid var(--main-subtext);
-        border-collapse: collapse;
-    }
-
-    td {
-        height: 2em;
-        text-align: center;
-    }
-
     .search-results {
         position: absolute;
         top: 100%;
-        right: 0;
         width: 100%;
         background: white;
         border: 1px solid #ccc;
@@ -174,26 +143,77 @@
         width: 2em;
         border-radius: 100%;
     }
+
+    /* Hamburger menu */
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 2em;
+        color: var(--text1-dark);
+    }
+
+    .hamburger div {
+        width: 7em;
+        height: 5em;
+        background-color: var(--text1-dark);
+        transition: 0.3s;
+    }
+
+    @media screen and (max-width: 70em) {
+        .links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 4em;
+            right: 0;
+            background: var(--surface1-dark);
+            width: 200px;
+            padding: 1em;
+            z-index: 100;
+        }
+
+        .search-bar {
+            width: 40em;
+            max-width: 60em;
+            align-self: center;
+        }
+
+        .links.active {
+            display: flex;
+        }
+    
+        .hamburger {
+            display: flex;
+            padding-top: 0.5em;
+            padding-right: 1em;
+        }
+    }
+
+    @media screen and (max-width: 50em) {
+        .search-bar {
+            width: 20em;
+        }
+    }
+
+    @media screen and (max-width: 35em) {
+        .search-bar {
+            width: 10em;
+        }
+    }
+
 </style>
 <nav>
-    <div class="nav-container-one">
-        <div class="logo">
-            <a href="/"><img class="header-logo" src="/imgs/IMDB.jpg"></a>
-        </div>
-    </div>
     <div class="nav-container-two">
         <div>
             <ul class="links transition">
-                <a href="/Movies" class="rm-style"><li>Movies</li></a>
+                <li><a href="/Movies" class="rm-style">Movies</a></li>
                 <li>Discussions</li>
                 <li>Watch</li>
                 <li>Help</li>
             </ul>
         </div>
         <div class="search">
-            <div class="search-icon-container">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            </div>
             <input type="text" class="search-bar" id="searchbar" placeholder="Search YouScreen!">
             <div id="search-results" class="search-results"></div>
         </div>
@@ -207,10 +227,19 @@
             <% } %>
         </div>
     </div>
+
+    <div class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+    </div>
 </nav>
 
 <div class="side">
     <ul class="side-links transition">
+        <li>
+            <div class="logo">
+                <a href="/"><img class="header-logo" src="/imgs/IMDB.jpg"></a>
+            </div>
+        </li>
         <%if (!loggedin) {%>
             <a href='/Login' class="rm-style">
                 <li>Not logged in</li>
@@ -224,7 +253,9 @@
             <li>Profile</li>
         </a>
         <li>Library</li>
-        <li>Community</li>
+        <a href="/Community" class="rm-style">
+            <li>Community</li>
+        </a>
         <li>Groups</li>
         <li>Hype Leaderboard</li>
         <li>See Rules</li>

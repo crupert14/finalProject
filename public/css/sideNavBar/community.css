@@ -1,0 +1,59 @@
+/* Main layout */
+main {
+    display: grid;
+    grid-area: "main";
+    overflow-y: auto;
+    grid-template-areas: 
+    "central";
+    grid-template-columns: 1fr;
+    background-color: var(--main-bg);
+    color: var(--main-main-text);
+    padding: 2em 5em;
+}
+
+/* Announcements */
+
+.announcements, thead, tbody {
+    border-collapse: collapse;
+    border: 1px solid var(--nav-bg);
+}
+
+.row {
+    height: 10em;
+}
+
+.ann {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "pfp info";
+    grid-template-columns: 20% 80%;
+    padding: 1em 0;
+}
+
+.pfp {
+    grid-area: pfp;
+    background-color: var(--nav-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pfp > img {
+    width: 90%;
+    border-radius: 100%;
+}
+
+.info {
+    grid-area: info;
+    height: 100%;
+    width: 100%;
+    background-color: var(--nav-bg);
+    display: flex;
+    flex-direction: column;
+}
+
+.info > h1, .info > p {
+    text-align: left;
+}
