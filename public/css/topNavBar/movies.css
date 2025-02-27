@@ -8,23 +8,17 @@ main {
     align-self: center;
     justify-self: center;
     z-index: 1000;
-    color: var(--text1-dark);
+    color: var(--main-subtext);
     overflow-y: scroll;
 }
 
-h1 {
-    text-align: center;
-    padding-top: 1em;
+.bg {
     padding-bottom: 1em;
-    background-color: var(--surface2-dark);
-    display: block;
-    box-shadow: 5px 5px 15px var(--surface-shadow-dark);
+    text-align: center;
 }
 
-.bg {
-    position: sticky;
-    padding-bottom: 1em;
-    top: 0;
+.bg > h1 {
+    color: var(--main-text);
 }
 
 .votes {
@@ -49,6 +43,7 @@ h1 {
 }
 
 .poster {
-    height: 15em;
+    width: 20vw;
+    height: 18em;
     cursor: pointer;
 }

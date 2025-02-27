@@ -2,4 +2,96 @@
 main {
     display: grid;
     grid-area: main;
+    grid-template-areas: 
+    "top-image"
+    "trending-movies"
+    "tutorial";
+    color: var(--main-text);
 }
+
+/* Start top image */
+
+.image-container {
+    position: relative;
+    color: var(--main-text);
+    grid-area: top-image;
+}
+
+.top-image {
+    width: 100vw;
+}
+
+.img-main-text {
+    position: absolute;
+    bottom: 40%;
+    left: 2em;
+    font-size: 4em;
+}
+
+.img-subtext {
+    position: absolute;
+    bottom: 35%;
+    left: 8em;
+    color: var(--main-subtext);
+}
+
+.custom-text {
+    color: var(--accent);
+    font-family: 'Poppins', serif;
+}
+
+/* End top image */
+
+/* Start trending movies */
+.trending {
+    grid-area: trending-movies;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 3em;
+}
+
+.trending-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.trending-text {
+    padding: 3em 0;
+    align-self: center;
+}
+
+.trending-movies {
+    display: flex;
+    flex-direction: row;
+}
+
+.movie {
+    width: 10vw;
+}
+/* End trending movies */
+
+/* Start tutorial */
+.tutorial {
+    grid-area: tutorial;
+    position: relative;
+}
+
+.second-img {
+    width: 100vw;
+}
+
+.img-text-two {
+    position: absolute;
+    bottom: 40%;
+    font-size: 4em;
+    padding-left: 8em;
+}
+
+.subtext-two {
+    position: absolute;
+    bottom: 35%;
+    padding-left: 40em;
+    color: var(--main-subtext);
+}
+/* End tutorial */

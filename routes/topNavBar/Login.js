@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     let { user, pass } = req.body;
 
     if(pass == "" || user == "") {
-        res.render('login.ejs', {
+        return res.render('topNavBar/login.ejs', {
             err: "No field can be left blank!"
         });
     }
@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 
         if (validUser) {
             req.session.user = { username: user };
-            res.redirect('/Login');
+            res.redirect('/Profile');
         } else {
             res.render('topNavBar/login.ejs', {
                 err: "Not logged in"

@@ -9,7 +9,7 @@
 <body>
     <%- include ("../partials/navbar.ejs") %>
     
-    <main class="main">
+    <!-- <main class="main">
         <form action="/Signup" method="POST" class="signup-form">
             <h1 class="signup-header">Signup</h1>
             <div class="inputs">
@@ -18,8 +18,30 @@
                 <input type="password" class="password-conf" name="passconf" placeholder="Confirm Password">
                 <button class="submit">Signup</button>
             </div>
-            <p class="message"> <%= err %> </p>
+            <p class="message"></p>
         </form>
+    </main> -->
+
+    <main class="main">
+        <div class="login-container">
+            <div class="login-form">
+                <h1 class="login-header">Signup</h1>
+                <form method="POST" action="/Signup" class="inputs">
+                    <input type="text" class="username" name="user" placeholder="Username">
+                    <input type="password" class="password" name="pass" placeholder="Password">
+                    <input type="password" class="password-conf" name="passconf" placeholder="Confirm Password">
+                    <button class="submit">Signup</button>
+                </form>
+                <p class="message"><%= err %> </p>
+            </div>
+            <div class="sidebar">
+                <div class="wrapper">
+                    <h1>Welcome to YouScreen!</h1>
+                    <br>
+                    <p>Returning user? Click here to login!</p>
+                </div>
+            </div>
+        </div>
     </main>
 
 </body>

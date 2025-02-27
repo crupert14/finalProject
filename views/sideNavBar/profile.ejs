@@ -7,96 +7,25 @@
     <link rel="stylesheet" href="/css/sideNavBar/profile.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container-one">
-            <div class="logo">
-                <a href="/"><img class="header-logo" src="/imgs/IMDB.jpg"></a>
-            </div>
-        </div>
-        <div class="nav-container-two">
-            <div>
-                <ul class="links transition">
-                    <a href="/Movies" class="rm-style"><li>Movies</li></a>
-                    <li>Discussions</li>
-                    <li>Watch</li>
-                    <li>Help</li>
-                </ul>
-            </div>
-            <div class="search">
-                <input type="text" class="search-bar" id="searchbar" placeholder="Search YouScreen!">
-                <div id="search-results" class="search-results"></div>
-            </div>
-            <div class="links">
-                <% if(!loggedin) { %>
-                    <a href="/Login" class="rm-style"><span>Login</span></a>
-                    <a href="/Signup" class="rm-style"><span>Signup</span></a>
-                <% } else { %>
-                    <span><%= username %></span>
-                    <a href='/Logout' class="rm-style"><span>Logout</span></a>
-                <% } %>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="side">
-        <img class="pfp" src="/imgs/defaultPFP.png">
-        <div class="info">
-            <p class="online">Last Online:<span></span></p>
-            <div class="divider"></div>
-            <p class="posts">Forum Posts:<span></span></p>
-            <p class="reviews">Reviews:<span></span></p>
-        </div>
-    </div>
-
+    <%- include ("../partials/navbar.ejs") %>
     <main>
-        <section class="top">
-            <div class="top-wrapper">
-                <p>About me:</p>
-                <br>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing 
-                    elit. Duis dignissim, massa ut bibendum lacinia,
-                    ipsum ex gravida nulla, commodo accumsan magna augue
-                    nec lectus. Sed non hendrerit urna, sed pretium est. Duis
-                    tempus enim non metus porta, et placerat lacus varius. 
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                    posuere cubilia curae; Praesent non volutpat sem. Nulla 
-                    facilisi. Donec euismod erat vel felis interdum, eu laoreet
-                    lectus tempus. Fusce at arcu massa.
-                </p>
+        <div class="head-photo-container">
+            <img class="top-photo" src="/imgs/backgrounds/profile/header.jpg">
+            <img src="/imgs/defaultPFP.png" class="profile-picture">
+            <h1 class="name">Welcome, <span class="you" style="color:var(--accent)"><%= username %></span></h1>
+        </div>
+        <div class="spacer"></div>
+        <div class="info-wrapper">
+            <div class="bio-wrapper areas">
+                <div class="bio"></div>
             </div>
-        </section>
-        <section class="left">
-            <div class="left-wrapper">
-                <section class="fav-movies">
-                    <p>Favorited Movies</p>
-                    <div class="movie-list">
-                        <img src="/imgs/testPoster.jpg">
-                        <img src="/imgs/testPoster.jpg">
-                        <img src="/imgs/testPoster.jpg">
-                        <img src="/imgs/testPoster.jpg">
-                        <img src="/imgs/testPoster.jpg">
-                        <img src="/imgs/testPoster.jpg">
-                        <img src="/imgs/testPoster.jpg">
-                    </div>
-                </section>
+            <div class="favorite-wrapper areas">
+                <div class="favorite"></div>
             </div>
-        </section>
-        <section class="right">
-            <div class="right-wrapper">
-                <p>Hyped Movies</p>
-                <section class="hype-updates">
-                    <img src="/imgs/testPoster.jpg">
-                    <img src="/imgs/testPoster.jpg">
-                    <img src="/imgs/testPoster.jpg">
-                    <img src="/imgs/testPoster.jpg">
-                    <img src="/imgs/testPoster.jpg">
-                    <img src="/imgs/testPoster.jpg">
-                    <img src="/imgs/testPoster.jpg">
-                </section>
+            <div class="hype-wrapper areas">
+                <div class="hype"></div>
             </div>
-        </section>
+        </div>
     </main>
-    <script src="/js/search.js"></script>
 </body>
 </html>

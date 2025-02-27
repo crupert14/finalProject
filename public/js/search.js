@@ -7,12 +7,6 @@ async function loadMoviePage(title) {
     window.location.href = `/MovieInfo?title=${encodeURIComponent(title)}`;
 }
 
-function toggleMenu() {
-    document.querySelector(".links").classList.toggle("active");
-}
-
-document.getElementById("hamburger").addEventListener("click", toggleMenu);
-
 function displayResults(results) {
     if (results.length === 0) {
         searchResults.innerHTML = "<p>No results found</p>";

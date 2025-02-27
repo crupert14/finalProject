@@ -19,12 +19,12 @@ router.post('/', async (req, res) => {
     }
 
     if(pass != passconf) {
-        res.render('signup.ejs', {
+        res.render('topNavBar/signup.ejs', {
             err: "Passwords don't match!"
         });
     }
     else if(pass == "" || passconf == "" || user == "") {
-        res.render('signup.ejs', {
+        res.render('topNavBar/signup.ejs', {
             err: "No field can be left blank!"
         });
     }

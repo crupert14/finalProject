@@ -3,21 +3,30 @@
 <head>
     <%- include ("../partials/head.ejs") %>
     <%- include ("../partials/movieVars.ejs") %>
-    <title>Signup</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/topNavBar/login.css">
 </head>
 <body>
     <%- include ("../partials/navbar.ejs") %>
     
     <main class="main">
-        <div class="login-form">
-            <h1 class="login-header">Login</h1>
-            <form method="POST" action="/Login" class="inputs">
-                <input type="text" name="user" class="username" placeholder="Username">
-                <input type="password" name="pass" class="password" placeholder="Password">
-                <button class="submit">Login</button>
-            </form>
-            <p class="message"><%= err %> </p>
+        <div class="login-container">
+            <div class="login-form">
+                <h1 class="login-header">Login</h1>
+                <form method="POST" action="/Login" class="inputs">
+                    <input type="text" name="user" class="username" placeholder="Username">
+                    <input type="password" name="pass" class="password" placeholder="Password">
+                    <button class="submit">Login</button>
+                </form>
+                <p class="message"><%= err %> </p>
+            </div>
+            <div class="sidebar">
+                <div class="wrapper">
+                    <h1>Welcome back to YouScreen!</h1>
+                    <br>
+                    <p>First time here? Click here to sign up!</p>
+                </div>
+            </div>
         </div>
     </main>
 

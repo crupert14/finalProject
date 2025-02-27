@@ -1,66 +1,87 @@
 main {
     grid-area: main;
     display: grid;
-    grid-template-rows: 15% auto 15%;
-    grid-template-columns: 1fr 2fr 1fr;
-    color: var(--text1-dark);
+    align-items: center;
+    justify-content: center;
+    background-image: url('/imgs/backgrounds/signup-login/login-bg.jpg');
+}
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    height: 25em;
+    width: 60em;
+    border-radius: 3em;
+    background-color: var(--main-text);
 }
 
 .login-form {
-    grid-column: 2;
-    grid-row: 2;
-    background-color: var(--surface1-dark);
+    width: 50%;
     display: grid;
-    grid-template-areas: 
-    "header"
-    "inputs"
-    "error-message";
-    grid-template-rows: 1fr 3fr 1fr;
-    grid-template-columns: 1fr;
-    place-content: center;
+    grid-template-rows: 20% 60% 20%;
+    grid-template-columns: 100%;
+    justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 15px 5px var(--surface-shadow-dark);
+    text-align: center;
 }
 
 .login-header {
-    grid-area: header;
-    text-align: center;
-    padding-top: 1em;
+    grid-row: 1;
 }
 
 .inputs {
+    grid-row: 2;
     display: flex;
     flex-direction: column;
-    grid-area: inputs;
-    gap: 2em;
-    align-items: center;
+    gap: 3em;
+    width: 80%;
+    justify-self: center;
 }
 
-.inputs > input {
-    width: 70%;
-    height: 2.5em;
-    border-radius: 1em;
+.username, .password {
+    height: 4em;
+    border-radius: 3em;
+    transition: 300ms ease-in-out;
     padding-left: 1em;
+    text-align: center;
+}
+
+.username:focus, .password:focus {
+    border: 0.25em solid var(--accent);
 }
 
 .submit {
-    margin-top: 2em;
-    width: 50%;
-    height: 2.5em;
-    background-color: var(--surface2-dark);
-    border-radius: 1em;
+    height: 2em;
+    border-radius: 3em;
     cursor: pointer;
-    transition: 300ms ease;
-    color: var(--text1-dark);
+    transition: 300ms ease-in-out;
 }
 
 .submit:hover {
-    background-color: var(--main-bg);
-    color: var(--main-main-text);
+    background-color:var(--main-subtext);
 }
 
 .message {
-    grid-area: error-message;
+    grid-column: 3;
+}
+
+.sidebar {
+    width: 50%;
+    border-radius: 3em;
+    background-color: var(--accent);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    color: white;
+    color: var(--main-text);
+}
+
+.wrapper p {
+    color: var(--main-subtext);
 }
