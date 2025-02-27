@@ -3,10 +3,10 @@ const router = express.Router();
 const path = require('path');
 require('dotenv').config();
 
-const { getJSONData, updateJSONData } = require('../../utils/jsonBinService');
+const { getJSONData, updateJSONData } = require('../utils/jsonBinService');
 
 router.get('/', async (req, res) => {
-    res.render('topNavBar/signup.ejs', { err: "" })    
+    res.render('signup.ejs', { err: "" })    
 });
 
 router.post('/', async (req, res) => {
@@ -19,12 +19,12 @@ router.post('/', async (req, res) => {
     }
 
     if(pass != passconf) {
-        res.render('topNavBar/signup.ejs', {
+        res.render('signup.ejs', {
             err: "Passwords don't match!"
         });
     }
     else if(pass == "" || passconf == "" || user == "") {
-        res.render('topNavBar/signup.ejs', {
+        res.render('signup.ejs', {
             err: "No field can be left blank!"
         });
     }
@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
         const userExists = data.users.some(u => u.username === user);
 
         if(userExists) {
-            res.render('topNavBar/signup.ejs', {
+            res.render('signup.ejs', {
                 err: "Username already in use"
             });
         }

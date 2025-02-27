@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 require('dotenv').config();
-const { getJSONData } = require('../../utils/jsonBinService');
+const { getJSONData } = require('../utils/jsonBinService');
 
 router.get('/', async (req, res) => {
-    res.render('topNavBar/login.ejs', {
+    res.render('login.ejs', {
         err: ""
     })    
 });
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     let { user, pass } = req.body;
 
     if(pass == "" || user == "") {
-        return res.render('topNavBar/login.ejs', {
+        return res.render('login.ejs', {
             err: "No field can be left blank!"
         });
     }
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
             req.session.user = { username: user };
             res.redirect('/Profile');
         } else {
-            res.render('topNavBar/login.ejs', {
+            res.render('login.ejs', {
                 err: "Not logged in"
             });
         }

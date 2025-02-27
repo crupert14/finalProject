@@ -24,12 +24,12 @@ const homeRoute = require('./routes/Home');
 const logoutRoute = require('./routes/nopage/Logout');
 const searchRoute = require('./routes/nopage/Search');
 //Top Nav Bar
-const signupRoute = require('./routes/topNavBar/Signup');
-const loginRoute = require('./routes/topNavBar/Login');
-const moviesRoute = require('./routes/topNavBar/Movies');
+const signupRoute = require('./routes/Signup');
+const loginRoute = require('./routes/Login');
+const moviesRoute = require('./routes/Movies');
 //Side Nav Bar
-const profileRoute = require('./routes/sideNavBar/Profile');
-const communityRoute = require('./routes/sideNavBar/Community');
+const profileRoute = require('./routes/Profile');
+const communityRoute = require('./routes/Community');
 
 app.use((req, res, next) => {
   res.locals.loggedin = req.session.user ? true : false;
