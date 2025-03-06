@@ -92,8 +92,8 @@
             position: absolute;
             top: 100%;
             width: 100%;
-            background: white;
-            border: 1px solid #ccc;
+            background: var(--main-text);
+            border: 1px solid var(--main-subtext);
             border-radius: 5px;
             max-height: 20em;
             overflow-y: auto;
@@ -105,11 +105,12 @@
             padding: 2em;
             margin: 0;
             cursor: pointer;
+            color: var(--nav-bg);
             transition: 0.3s ease;
         }
         
         .search-results p:hover {
-            background: #f0f0f0;
+            background: var(--main-subtext);
         }
         /* End search bar */
 
@@ -172,8 +173,7 @@
             <ul class="link-list">
                 <li><a style="text-decoration:none;color:var(--nav-text);" href="/Movies">Movies</a></li>
                 <li>Discussions</li>
-                <li>Watch</li>
-                <li>Help</li>
+                <li><a style="text-decoration:none;color:var(--nav-text);" href="/Community">Community</a></li>
                 <li class="exception" style="color:var(--accent)">||</li>
                 <% if(!loggedin) { %>
                     <li><a style="text-decoration:none;color:var(--nav-text);" href="/Login">Login</a></li>

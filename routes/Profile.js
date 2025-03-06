@@ -5,16 +5,35 @@ require('dotenv').config
 
 const isAuthenticated = require('../middleware/authenticated.js');
 const { getJSONData, editParam } = require('../utils/jsonBinService.js');
+const { getMovieBySearch } = require('../utils/omdbService.js');
 
 router.get("/", isAuthenticated, async (req, res) => {
     const data = await getJSONData(process.env.JSONBIN_USER_BINID);
     let user = data.users.find(user => user.username === req.session.user.username);
 
-    req.session.user.pfp = user.pfp;
-    
+    req.session.user.pfp = user.pfp;;
+
+    const favorites = user.favorites;
+    const hypes = user.hypeVotes;
+
+    let favPoster = [];
+    let hypePoster = [];
+
+    for(let i = 0;i < favorites.length;i++) {
+        let resp = await getMovieBySearch(favorites[i], "t");
+        favPoster.push(resp.Poster);
+    }
+
+    for(let i = 0;i < hypes.length;i++) {
+        let resp = await getMovieBySearch(hypes[i], "t");
+        hypePoster.push(resp.Poster);
+    }
+
     res.render('profile.ejs', {
         bio: user.bio,
-        pfp: req.session.user.pfp
+        pfp: req.session.user.pfp,
+        favs: favPoster,
+        hypes: hypePoster,
     })
 });
 

@@ -28,11 +28,19 @@
             </div>
             <div class="favorite-wrapper area-wrapper">
                 <p style="padding-left: 1em"><b>Favorites:</b></p>
-                <div class="favorite area"></div>
+                <div class="favorite area">
+                    <% for(let i =0; i < favs.length;i++) { %>
+                        <img class="poster" src="<%= favs[i] %>">
+                    <% } %>
+                </div>
             </div>
             <div class="hype-wrapper area-wrapper">
                 <p style="padding-left: 1em"><b>Hyped Movies:</b></p>
-                <div class="hype area"></div>
+                <div class="hype area">
+                    <% for(let i =0; i < hypes.length;i++) { %>
+                        <img class="poster" src="<%= hypes[i] %>">
+                    <% } %>
+                </div>
             </div>
         </div>
     </main>

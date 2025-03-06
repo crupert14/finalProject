@@ -23,6 +23,11 @@ const sendMovieInteraction = async (action) => {
         if(data.message == "Already added") {
             confirm(`You have already ${data.method}d this movie!`);
         }
+
+        if(data.special == "Unable") {
+            return "Unable";
+        }
+
         return data.message;
     } catch (error) {
         console.error("Error:", error);
@@ -37,10 +42,16 @@ window.onload = async function() {
     }
 };
 
-hypeButton.addEventListener("click", (event) => {
-    sendMovieInteraction("hype");
+hypeButton.addEventListener("click", async (event) => {
+    const response = await sendMovieInteraction("hype");
 });
 
-favoriteButton.addEventListener("click", (event) => {
-    sendMovieInteraction("favorite");
+favoriteButton.addEventListener("click", async (event) => {
+    const response = await sendMovieInteraction("favorite");
+    if(response == "You must be logged in to access this page") {
+        confirm("Please login to favorite or hype movies!");
+    }
+    else {
+        document.getElementById("heart").innerHTML = "<i class=\"fa-solid fa-heart\"></i>";
+    }
 });

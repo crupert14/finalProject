@@ -32,7 +32,7 @@ router.post("/interact", isAuthenticated, async (req, res) => {
             return res.json({ message: "not favorited"});
         }
     }
-    else {
+    else if(req.body.action == "favorite" || req.body.action == "hype") {
         if(req.body.action == "favorite") {
             if(currentFavorites.includes(title)) {
                 return res.json({ message: "Already added", method: "favorite" }); //Add error message
