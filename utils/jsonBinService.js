@@ -35,4 +35,16 @@ async function updateJSONData(data, binid) {
     });
 }
 
-module.exports = { getJSONData, updateJSONData };
+async function editParam(binid, username, paramKey, newValue) {
+    try {
+        let data = await getJSONData(binid);
+        let user = data.users.find(user => user.username === username);
+        if (!user) throw new Error("User not found");
+        user[paramKey] = newValue;
+        await updateJSONData(data, binid);
+    } catch (error) {
+        console.error("Error updating user parameter:", error);
+    }
+}
+
+module.exports = { getJSONData, updateJSONData, editParam };

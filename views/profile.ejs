@@ -11,21 +11,50 @@
     <main>
         <div class="head-photo-container">
             <img class="top-photo" src="/imgs/backgrounds/profile/header.jpg">
-            <img src="/imgs/defaultPFP.png" class="profile-picture">
+            <img src="<%= pfp %>" class="profile-picture" id="editPhoto">
             <h1 class="name">Welcome, <span class="you" style="color:var(--accent)"><%= username %></span></h1>
         </div>
         <div class="spacer"></div>
         <div class="info-wrapper">
-            <div class="bio-wrapper areas">
-                <div class="bio"></div>
+            <div class="bio-wrapper">
+                <span style="padding-left: 1em">
+                    <i class="fa-solid fa-pen-to-square" id="editBio"></i>
+                    &emsp;
+                    <b>Bio:</b>
+                </span>
+                <div class="bio">
+                    <span style="color:var(--main-bg);padding: 1em"><%= bio %></span>
+                </div>
             </div>
-            <div class="favorite-wrapper areas">
-                <div class="favorite"></div>
+            <div class="favorite-wrapper area-wrapper">
+                <p style="padding-left: 1em"><b>Favorites:</b></p>
+                <div class="favorite area"></div>
             </div>
-            <div class="hype-wrapper areas">
-                <div class="hype"></div>
+            <div class="hype-wrapper area-wrapper">
+                <p style="padding-left: 1em"><b>Hyped Movies:</b></p>
+                <div class="hype area"></div>
             </div>
         </div>
     </main>
+
+    <!-- Bio Dialog -->
+    <dialog id="bioDialog">
+        <form method="POST" action="/Profile/editBio" id="bioForm">
+            <input name="bio" value="" placeholder="Enter your bio here!">
+            <button id="cancel">Cancel</button>
+            <input class="sub" type="submit">
+        </form>
+    </dialog>
+
+    <!-- Photo Dialog -->
+    <dialog id="photoDialog">
+        <form method="POST" action="/Profile/editPhoto" id="photoForm">
+            <input name="photo" value="" placeholder="Enter your photo link here!">
+            <button id="cancelPhoto">Cancel</button>
+            <input class="subPhoto" type="submit">
+        </form>
+    </dialog>
+
+    <script src="/js/modal.js"></script>
 </body>
 </html>

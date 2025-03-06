@@ -17,10 +17,17 @@ main {
 
 .profile-picture {
     width: 15em;
+    height: 15em;
     border-radius: 100%;
     left: 10em;
     bottom: 40%;
     position: absolute;
+    transition: 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.profile-picture:hover {
+    filter: blur(3px);
 }
 
 .name {
@@ -52,10 +59,38 @@ main {
     justify-content: center;
 }
 
+.area-wrapper {
+    border-radius: 1em;
+    background-color: var(--accent);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.area {
+    background-color: var(--main-text);
+    width: 100%;
+    border-radius: 1em;
+    height: 94%;
+}
+
 .bio-wrapper {
     grid-area: bio;
     height: 90%;
     width: 100%;
+    background-color: var(--accent);
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.bio {
+    width: 100%;
+    height: 75%;
+    border-radius: 1em;
+    background-color: var(--main-text);
+    overflow-y: scroll;
 }
 
 .favorite-wrapper {
@@ -64,10 +99,94 @@ main {
     justify-self: flex-start;
 }
 
+.favorite {
+    
+}
+
 .hype-wrapper {
     grid-area: hype;
     width: 95%;
     justify-self: flex-end;
 }
 
+.hype {
+    
+}
+
 /* End info */
+
+/* Bio Modal */
+
+#bioDialog {
+    justify-self: center;
+    align-self: center;
+    height: 20em;
+    width: 30em;
+}
+
+#bioForm {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 3;
+}
+
+#bioForm > input::placeholder, #bioForm > input {
+    text-align: center;
+}
+
+#bioForm > input {
+    grid-column: 1/4;
+    grid-row: 1;
+}
+
+#bioForm > button {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#bioForm > .sub {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#editBio {
+    cursor: pointer;
+}
+
+/* Pfp Modal */
+
+#photoDialog {
+    justify-self: center;
+    align-self: center;
+    height: 20em;
+    width: 30em;
+}
+
+#photoForm {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 3;
+}
+
+#photoForm > input::placeholder, #photoForm > input {
+    text-align: center;
+}
+
+#photoForm > input {
+    grid-column: 1/4;
+    grid-row: 1;
+}
+
+#photoForm > button {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#photoForm > .subPhoto {
+    grid-column: 2;
+    grid-row: 3;
+}

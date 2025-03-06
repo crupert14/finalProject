@@ -4,9 +4,12 @@ const path = require('path');
 require('dotenv').config();
 
 const { getJSONData, updateJSONData } = require('../utils/jsonBinService');
+const { getDate } = require('../utils/accountCreation');
 
 router.get('/', async (req, res) => {
-    res.render('signup.ejs', { err: "" })    
+    res.render('signup.ejs', { 
+        err: ""
+    })    
 });
 
 router.post('/', async (req, res) => {
@@ -42,9 +45,9 @@ router.post('/', async (req, res) => {
             data.users.push({
                 username: user, 
                 password: pass, 
-                pfp: "",
+                pfp: "/imgs/defaultPFP.png",
                 bio: "",
-                lastOnline: "",
+                lastOnline: getDate(),
                 favorites: [],
                 forumPosts: [],
                 reviews: [],
@@ -57,7 +60,7 @@ router.post('/', async (req, res) => {
                 throw new Error("Failed to update bin");
             }
             else {
-                req.session.user = { username: user };
+                req.session.user = { username: user, pfp: '/imgs/defaultPFP.png' };
                 res.redirect('/');
             }
 

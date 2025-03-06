@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 require('dotenv').config();
-const { getJSONData } = require('../utils/jsonBinService');
+const { getJSONData, editParam } = require('../utils/jsonBinService');
+const { getDate } = require('../utils/accountCreation');
 
 router.get('/', async (req, res) => {
     res.render('login.ejs', {
@@ -24,7 +25,8 @@ router.post('/', async (req, res) => {
         const validUser = data.users.find(u => u.username === user && u.password === pass);
 
         if (validUser) {
-            req.session.user = { username: user };
+            req.session.user = { username: user, pfp: validUser.pfp || '/imgs/defaultPFP.png' };
+            await editParam(process.env.JSONBIN_USER_BINID, user, "lastOnline", getDate());
             res.redirect('/Profile');
         } else {
             res.render('login.ejs', {
