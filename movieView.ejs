@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("partials/head.ejs") %>
+    <%- include ("partials/movieVars.ejs") %>
+    <title><%= title %> info</title>
+    <link rel="stylesheet" href="/css/movieView.css">
+</head>
+<body>
+    <%- include ("partials/navbar.ejs") %>
+    <main>
+        <div class="main-content-wrapper">
+            <div class="title-wrapper">
+                <span class="title"><%= title %></span>
+            </div>
+            <div class="poster-wrapper">
+                <img class="poster" src="<%= img %>">
+            </div>
+            <div class="info-wrapper">
+                <div class="info-sections">
+                    <div class="left">
+                        <h1><%= title %></h1>
+                        <span><%= year %></span>
+                        <span><%= runtime %> <div class="rating"><%= rated %></div></span>
+                    </div>
+                    <div class="right">
+                        <span>
+                            <i class="fa-brands fa-imdb spacer"></i>
+                            <span><%= imdbrating %>/10</span>
+                        </span>
+                        <span>
+                            <span class="spacer">🍅</span>
+                            <span><%= rt %></span>
+                        </span>
+                        <span>
+                            <img class="metacritic spacer" src="/imgs/symbols/metacritic.png">
+                            <span><%= meta %>/100</span>
+                        </span>
+                        <span class="genre">
+                            <%= genre %>
+                        </span>
+                    </div>
+                    <div class="bottom">
+                        <div class="divider"></div>
+                        <div class="rest-wrapper">
+                            <div class="producer-technical-info">
+                                <span style="color:var(--main-subtext)">Directed By &emsp; <span style="color:var(--main-text)"><%= director %></span></span>
+                                <span style="color:var(--main-subtext)">Written By &emsp; <span style="color:var(--main-text);padding-left:0.5em;"><%= writers %></span></span>
+                                <br>
+                                <span style="color:var(--main-subtext)">Languages &emsp; <span style="color:var(--main-text);padding-left:0.3em;"><%= languages %></span></span>
+                                <span style="color:var(--main-subtext)">Country &emsp; <span style="color:var(--main-text);padding-left:1.4em;"><%= country %></span></span>
+                                <br>
+                                <span style="color: var(--main-subtext)">Awards &emsp; <span style="color:var(--main-text);padding-left:1.7em"><%= awards %></span></span>
+                            </div>
+                            <div class="synopsis">
+                                <br>
+                                <span><%= summary %></span>
+                            </div>
+                            <div class="cast">
+                                <span style="color: var(--main-subtext)">Cast &emsp; <span style="color:var(--main-text);padding-left:2.9em"><%= cast %></span></span>
+                                <span style="color: var(--main-subtext)">Box Office &emsp; <span style="color:var(--main-text);padding-left:0.6em"><%= boxoffice %></span></span>
+                            </div>
+                            <div class="user-interaction">
+                                <div class="hype-favorite">
+                                    <span>Hype!</span>
+                                </div>
+                                <div class="hype-favorite">
+                                    <span id="heart"><i class="fa-regular fa-heart"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="suggestions-section">
+        <h2>Suggested Movies</h2>
+        <div class="suggested-movies-slider">
+            <% if (similarMovies && similarMovies.length > 0) { %>
+                <% similarMovies.forEach(movie => { %>
+                    <a href="/MovieInfo?title=<%=movie.title%>" class="suggested-movie-card">
+                        <img src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>" alt="<%= movie.title %> poster">
+                        <p><%= movie.title %></p>
+                    </a>
+                <% }); %>
+            <% } else { %>
+                <p>No similar movies found.</p>
+            <% } %>
+        </div>
+    </div>
+
+    
+    <script src="/js/movieView.js"></script>
+</body>
+</html>
