@@ -1,0 +1,245 @@
+ main {
+    grid-area: main;
+    height: 100%;
+    color: var(--main-text);
+}
+
+.main-content-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "title title"
+    "poster info"
+    "poster info";
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 10% 50% 40%;
+}
+
+/* Title */
+.title-wrapper {
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+    top: 0;
+    position: sticky;
+}
+
+.title {
+    color: var(--main-subtext);
+    margin-left: 5em;
+    padding-bottom: 1em;
+    font-size: 1.15em;
+}
+
+/* Poster */
+.poster-wrapper {
+    grid-area: poster;
+    display: grid;
+}
+
+.poster {
+    width: 55%;
+    justify-self: center;
+    padding-top: 3em;
+}
+
+/* Info */
+.info-wrapper {
+    grid-area: info;
+}
+
+.info-sections {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "left right"
+    "bottom bottom";
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 50% 50%;
+}
+
+/* Left Right */
+
+.left, .right {
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+/* Left */
+.left {
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+}
+
+.left > span:not(:first-of-type) {
+    color: var(--main-subtext);
+}
+
+.rating {
+    display: inline-block;
+    text-align: center;
+    height: 1.5em;
+    width: auto;
+    min-width: 1.5em;
+    border-radius: 0.25em;
+    background-color: var(--main-subtext);
+    color: var(--main-text);
+    margin-left: 1em;
+}
+
+/* Right */
+.right {
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding: 0.5em 5em 0 0;
+}
+
+.metacritic {
+    width: 1em;
+}
+
+.genre {
+    color: var(--main-subtext);
+}
+
+.spacer {
+    padding-right: 0.25em;
+}
+
+/* Divider */
+.divider {
+    width: 95%;
+    height: 0.15em;
+    border-radius: 1em;
+    background-color: var(--main-subtext);
+}
+
+/* Bottom */
+.bottom {
+    grid-area: bottom;
+}
+
+.rest-wrapper {
+    height: 100%;
+    width: 95%;
+    display: grid;
+    grid-template-areas:
+    "producer-technical-info"
+    "synopsis"
+    "cast"
+    "user-interaction";
+    grid-template-rows: 40% 20% 20% 20%;
+    padding-left: 1em;
+}
+
+.producer-technical-info {
+    grid-area: producer-technical-info;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.synopsis {
+    grid-area: synopsis; 
+}
+
+.cast {
+    grid-area: cast;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Buttons */
+
+.user-interaction {
+    grid-area: user-interaction;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+
+.hype-favorite {
+    height: 80%;
+    width: 90%;
+    background-color: var(--main-text);
+    border-radius: 7em;
+    transition: 300ms ease-in-out;
+    cursor: pointer;
+    color: var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hype-favorite:hover {
+    background-color: var(--accent);
+    color: var(--main-text);
+    font-size: 2em;
+}
+
+.suggestions-section {
+    margin: 2em;
+    padding-top: 2em;
+    background-color: var(--main-bg, #1e1e1e);
+    border-top: 1px solid var(--main-subtext);
+}
+
+.suggestions-section h2 {
+    color: var(--main-text);
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+.suggested-movies-slider {
+    display: flex;
+    gap: 1em;
+    overflow-x: auto;
+    padding: 1em;
+}
+
+.suggested-movie-card {
+    flex: 0 0 auto;
+    width: 130px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.suggested-movie-card img {
+    width: 100%;
+    border-radius: 0.5em;
+    transition: transform 0.3s ease;
+}
+
+.suggested-movie-card img:hover {
+    transform: scale(1.05);
+}
+
+.suggested-movie-card:hover img {
+    transform: scale(1.05);
+}
+
+.suggested-movie-card p {
+    margin-top: 0.5em;
+    font-size: 0.85em;
+    color: var(--main-subtext);
+}
+
+.suggested-movies-slider::-webkit-scrollbar {
+height: 8px;
+}
+
+.suggested-movies-slider::-webkit-scrollbar-thumb {
+    background: var(--main-subtext);
+    border-radius: 4px;
+}
